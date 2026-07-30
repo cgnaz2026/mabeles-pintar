@@ -1279,28 +1279,35 @@ header {
                 utterance.pitch =
                     pitch;
 
-                const voice =
-                    getMalayVoice();
+                const voice = getMalayVoice();
 
-                if (voice) {
+/*
+ * WAJIB ada suara Bahasa Melayu.
+ * Jangan gunakan suara lalai pelayar.
+ */
 
-                    utterance.voice =
-                        voice;
+if (!voice) {
 
-                    utterance.lang =
-                        voice.lang;
+    console.warn(
+        "Suara Bahasa Melayu tidak tersedia."
+    );
 
-                } else {
+    index++;
 
-                    /*
-                     * Jika suara Melayu tidak
-                     * tersedia, paksa bahasa ms-MY.
-                     */
+    if (isSpeakingState) {
 
-                    utterance.lang =
-                        "ms-MY";
+        setTimeout(
+            playNextSentence,
+            200
+        );
 
-                }
+    }
+
+    return;
+}
+
+utterance.voice = voice;
+utterance.lang = voice.lang;
 
                 utterance.onend = () => {
 
