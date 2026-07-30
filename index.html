@@ -933,6 +933,9 @@ header {
         let currentModalAudioFn = null;
         let activeSpeakerBtn = null;
         let isSpeakingState = false;
+
+const globalAudioPlayer = new Audio();
+globalAudioPlayer.preload = "auto";
         
         // Objek Audio Global
         const globalAudioPlayer = new Audio();
