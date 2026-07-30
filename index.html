@@ -933,9 +933,6 @@ header {
         let currentModalAudioFn = null;
         let activeSpeakerBtn = null;
         let isSpeakingState = false;
-
-const globalAudioPlayer = new Audio();
-globalAudioPlayer.preload = "auto";
         
         // Objek Audio Global
         const globalAudioPlayer = new Audio();
@@ -1126,31 +1123,29 @@ globalAudioPlayer.preload = "auto";
         }
 
         function getMalayVoice() {
-    if (!('speechSynthesis' in window)) return null;
+            if (!('speechSynthesis' in window)) return null;
 
-    if (cachedVoices.length === 0) {
-        cachedVoices = window.speechSynthesis.getVoices();
-    }
+            if (cachedVoices.length === 0) {
+                cachedVoices = window.speechSynthesis.getVoices();
+            }
 
-    // Utamakan Bahasa Melayu Malaysia
-    let v = cachedVoices.find(
-        voice =>
-            voice.lang === 'ms-MY' ||
-            voice.lang === 'ms_MY'
-    );
+            // Utamakan suara Bahasa Melayu Malaysia.
+            let v = cachedVoices.find(
+                voice => voice.lang &&
+                voice.lang.toLowerCase() === 'ms-my'
+            );
 
-    // Jika tiada, gunakan mana-mana suara Bahasa Melayu
-    if (!v) {
-        v = cachedVoices.find(
-            voice =>
-                voice.lang &&
-                voice.lang.toLowerCase().startsWith('ms')
-        );
-    }
+            // Jika tiada, gunakan mana-mana suara Bahasa Melayu.
+            if (!v) {
+                v = cachedVoices.find(
+                    voice => voice.lang &&
+                    voice.lang.toLowerCase().startsWith('ms-')
+                );
+            }
 
-    // JANGAN gunakan suara Bahasa Indonesia
-    return v || null;
-}
+            // JANGAN gunakan suara Indonesia atau English sebagai fallback.
+            return v || null;
+        }
 
         function stopAudio() {
             globalAudioPlayer.pause();
@@ -1206,269 +1201,87 @@ globalAudioPlayer.preload = "auto";
 
         /* Enjin Suara Berurutan Menggunakan Re-use Audio Object */
         function speakSentenceQueue(sentences, rate = 0.85, pitch = 1.1) {
+            let index = 0;
 
-    let index = 0;
+            function playNextSentence() {
+                if (!isSpeakingState || index >= sentences.length) {
+                    stopAudio();
+                    return;
+                }
 
-    function playNextSentence() {
+                const sentence = sentences[index].trim();
+                if (!sentence) {
+                    index++;
+                    playNextSentence();
+                    return;
+                }
 
-        if (
-            !isSpeakingState ||
-            index >= sentences.length
-        ) {
-            stopAudio();
-            return;
-        }
+                const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ms&client=tw-ob&q=${encodeURIComponent(sentence)}`;
+                
+                globalAudioPlayer.pause();
+                globalAudioPlayer.src = ttsUrl;
 
-        const sentence =
-            String(sentences[index] || "").trim();
+                globalAudioPlayer.onended = () => {
+                    index++;
+                    if (isSpeakingState) {
+                        setTimeout(playNextSentence, 200);
+                    }
+                };
 
-        if (!sentence) {
-            index++;
+                globalAudioPlayer.onerror = () => {
+                    // Sandaran WebSpeech API
+                    if ('speechSynthesis' in window) {
+                        window.speechSynthesis.cancel();
+                        window.speechSynthesis.resume();
+
+                        const utterance = new SpeechSynthesisUtterance(sentence);
+                        utterance.rate = rate;
+                        utterance.pitch = pitch;
+
+                        const voice = getMalayVoice();
+                        if (voice) {
+                            utterance.voice = voice;
+                            utterance.lang = voice.lang;
+                        } else {
+                            utterance.lang = 'ms-MY';
+                        }
+
+                        utterance.onend = () => {
+                            index++;
+                            if (isSpeakingState) setTimeout(playNextSentence, 200);
+                        };
+
+                        utterance.onerror = () => {
+                            playSynthPhonicBeep(sentence);
+                            index++;
+                            if (isSpeakingState) setTimeout(playNextSentence, 200);
+                        };
+
+                        try {
+                            window.speechSynthesis.speak(utterance);
+                        } catch(e) {
+                            playSynthPhonicBeep(sentence);
+                            index++;
+                            if (isSpeakingState) setTimeout(playNextSentence, 200);
+                        }
+                    } else {
+                        playSynthPhonicBeep(sentence);
+                        index++;
+                        if (isSpeakingState) setTimeout(playNextSentence, 200);
+                    }
+                };
+
+                const playPromise = globalAudioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        if (globalAudioPlayer.onerror) globalAudioPlayer.onerror();
+                    });
+                }
+            }
+
             playNextSentence();
-            return;
         }
 
-        /* =================================================
-           UTAMA: GOOGLE TTS BAHASA MELAYU
-           ================================================= */
-
-        const ttsUrl =
-            "https://translate.google.com/translate_tts" +
-            "?ie=UTF-8" +
-            "&tl=ms" +
-            "&client=tw-ob" +
-            "&q=" +
-            encodeURIComponent(sentence);
-
-        globalAudioPlayer.pause();
-        globalAudioPlayer.currentTime = 0;
-        globalAudioPlayer.src = ttsUrl;
-
-        let fallbackStarted = false;
-
-        function goToMalaySpeech() {
-
-            if (fallbackStarted) {
-                return;
-            }
-
-            fallbackStarted = true;
-
-            if (
-                !isSpeakingState
-            ) {
-                return;
-            }
-
-            /*
-             * Hanya gunakan suara Bahasa Melayu.
-             * Jangan gunakan Bahasa Indonesia.
-             */
-
-            if (
-                "speechSynthesis" in window
-            ) {
-
-                window.speechSynthesis.cancel();
-
-                const utterance =
-                    new SpeechSynthesisUtterance(
-                        sentence
-                    );
-
-                utterance.rate =
-                    rate;
-
-                utterance.pitch =
-                    pitch;
-
-                const voice = getMalayVoice();
-
-/*
- * WAJIB ada suara Bahasa Melayu.
- * Jangan gunakan suara lalai pelayar.
- */
-
-if (!voice) {
-
-    console.warn(
-        "Suara Bahasa Melayu tidak tersedia."
-    );
-
-    index++;
-
-    if (isSpeakingState) {
-
-        setTimeout(
-            playNextSentence,
-            200
-        );
-
-    }
-
-    return;
-}
-
-utterance.voice = voice;
-utterance.lang = voice.lang;
-
-                utterance.onend = () => {
-
-                    index++;
-
-                    if (
-                        isSpeakingState
-                    ) {
-
-                        setTimeout(
-                            playNextSentence,
-                            200
-                        );
-
-                    }
-
-                };
-
-                utterance.onerror = () => {
-
-                    /*
-                     * Jangan jatuh ke suara Indonesia.
-                     * Teruskan ke ayat berikutnya.
-                     */
-
-                    index++;
-
-                    if (
-                        isSpeakingState
-                    ) {
-
-                        setTimeout(
-                            playNextSentence,
-                            200
-                        );
-
-                    }
-
-                };
-
-                try {
-
-                    window.speechSynthesis
-                        .speak(utterance);
-
-                } catch (error) {
-
-                    index++;
-
-                    if (
-                        isSpeakingState
-                    ) {
-
-                        setTimeout(
-                            playNextSentence,
-                            200
-                        );
-
-                    }
-
-                }
-
-            } else {
-
-                index++;
-
-                if (
-                    isSpeakingState
-                ) {
-
-                    setTimeout(
-                        playNextSentence,
-                        200
-                    );
-
-                }
-
-            }
-
-        }
-
-
-        /* =================================================
-           JIKA GOOGLE TTS BERJAYA
-           ================================================= */
-
-        globalAudioPlayer.onended = () => {
-
-            index++;
-
-            if (
-                isSpeakingState
-            ) {
-
-                setTimeout(
-                    playNextSentence,
-                    200
-                );
-
-            }
-
-        };
-
-
-        /* =================================================
-   GOOGLE TTS BAHASA MELAYU
-   ================================================= */
-
-globalAudioPlayer.onerror = () => {
-
-    console.warn(
-        "Google TTS gagal dimainkan."
-    );
-
-    index++;
-
-    if (isSpeakingState) {
-
-        setTimeout(
-            playNextSentence,
-            200
-        );
-
-    }
-
-};
-
-
-/* =================================================
-   MAIN AUDIO
-   ================================================= */
-
-try {
-
-    globalAudioPlayer.play();
-
-} catch (error) {
-
-    console.warn(
-        "Audio gagal dimainkan:",
-        error
-    );
-
-    index++;
-
-    if (isSpeakingState) {
-
-        setTimeout(
-            playNextSentence,
-            200
-        );
-
-    }
-
-}    }
-
-    playNextSentence();
-}
         /* Enjin Audio Utama */
         function toggleSpeak(text, buttonEl, rate = 0.85, pitch = 1.1) {
             initAudioEngine();
