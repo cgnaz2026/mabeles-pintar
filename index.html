@@ -1413,46 +1413,56 @@ utterance.lang = voice.lang;
 
 
         /* =================================================
-           JIKA GOOGLE TTS GAGAL
-           ================================================= */
+   GOOGLE TTS BAHASA MELAYU
+   ================================================= */
 
-        globalAudioPlayer.onerror = () => {
+globalAudioPlayer.onerror = () => {
 
-            goToMalaySpeech();
+    console.warn(
+        "Google TTS gagal dimainkan."
+    );
 
-        };
+    index++;
 
+    if (isSpeakingState) {
 
-        /* =================================================
-           CUBA MAINKAN AUDIO
-           ================================================= */
-
-        try {
-
-            const playPromise =
-                globalAudioPlayer.play();
-
-            if (
-                playPromise !== undefined
-            ) {
-
-                playPromise.catch(
-                    () => {
-
-                        goToMalaySpeech();
-
-                    }
-                );
-
-            }
-
-        } catch (error) {
-
-            goToMalaySpeech();
-
-        }
+        setTimeout(
+            playNextSentence,
+            200
+        );
 
     }
+
+};
+
+
+/* =================================================
+   MAIN AUDIO
+   ================================================= */
+
+try {
+
+    globalAudioPlayer.play();
+
+} catch (error) {
+
+    console.warn(
+        "Audio gagal dimainkan:",
+        error
+    );
+
+    index++;
+
+    if (isSpeakingState) {
+
+        setTimeout(
+            playNextSentence,
+            200
+        );
+
+    }
+
+}    }
 
     playNextSentence();
 }
