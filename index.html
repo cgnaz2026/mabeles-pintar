@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=FREE_KEY"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaBeleS PINTAR - Modul Bacaan Interaktif</title>
@@ -9,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #FF5722;
@@ -24,7 +24,7 @@
             --vokal-color: #E53935;
         }
 
-* {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -33,7 +33,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-body {
+        body {
             background-color: var(--bg-color);
             background-image: radial-gradient(#FFE082 15%, transparent 16%), radial-gradient(#A5D6A7 15%, transparent 16%);
             background-size: 60px 60px;
@@ -46,7 +46,7 @@ body {
             position: relative;
         }
 
-#confettiCanvas {
+        #confettiCanvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -56,7 +56,7 @@ body {
             z-index: 9999;
         }
 
-header {
+        header {
             background: linear-gradient(135deg, #FF9800, #FF5722, #E91E63);
             padding: 12px 20px;
             display: flex;
@@ -70,7 +70,7 @@ header {
             overflow: hidden;
         }
 
-.header-bg-illustrations {
+        .header-bg-illustrations {
             position: absolute;
             top: 0;
             left: 0;
@@ -81,34 +81,7 @@ header {
             z-index: 1;
         }
 
-.animated-cloud-1 {
-            animation: floatCloud1 22s infinite linear;
-        }
-
-.animated-cloud-2 {
-            animation: floatCloud2 30s infinite linear;
-        }
-
-.twinkle-star {
-            animation: starPulse 2s infinite ease-in-out alternate;
-        }
-
-@keyframes floatCloud1 {
-            0% { transform: translateX(-150px); }
-            100% { transform: translateX(1200px); }
-        }
-
-@keyframes floatCloud2 {
-            0% { transform: translateX(1200px); }
-            100% { transform: translateX(-150px); }
-        }
-
-@keyframes starPulse {
-            0% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
-            100% { opacity: 1; transform: scale(1.2) rotate(20deg); }
-        }
-
-.brand-container {
+        .brand-container {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -116,55 +89,38 @@ header {
             z-index: 2;
         }
 
-.logo-group {
+        .logo-group {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
 
-.logo-header-row {
+        .logo-header-row {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-.mabeles-logo-img {
+        .mabeles-logo-img {
             height: 52px;
             width: auto;
             max-width: 200px;
             filter: drop-shadow(3px 4px 0px rgba(0,0,0,0.3));
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             object-fit: contain;
-            animation: floatLogo 3.5s infinite ease-in-out;
             cursor: pointer;
         }
 
-.mabeles-logo-img:hover {
-            transform: scale(1.12) rotate(-3deg);
-            filter: drop-shadow(4px 6px 8px rgba(255, 235, 59, 0.8));
-        }
-
-@keyframes floatLogo {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(1deg); }
-        }
-
-.badge-pintar {
+        .badge-pintar {
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--accent);
             text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
             letter-spacing: 2px;
             font-family: 'Fredoka', sans-serif;
-            animation: pulseText 2s infinite ease-in-out;
         }
 
-@keyframes pulseText {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-.brand-tagline {
+        .brand-tagline {
             margin-top: 2px;
             color: #FFFFFF;
             font-size: 0.75rem;
@@ -173,13 +129,13 @@ header {
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
-.brand-tagline-sub {
+        .brand-tagline-sub {
             color: #FFEB3B;
             font-size: 0.72rem;
             font-weight: 700;
         }
 
-.teacher-stickers {
+        .teacher-stickers {
             display: flex;
             background: rgba(255,255,255,0.35);
             padding: 4px 14px;
@@ -190,15 +146,9 @@ header {
             position: relative;
             z-index: 2;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            animation: floatBadge 4s infinite ease-in-out 0.5s;
         }
 
-@keyframes floatBadge {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-4px); }
-        }
-
-.teacher-badge {
+        .teacher-badge {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -209,26 +159,18 @@ header {
             font-weight: bold;
             box-shadow: 0 3px 6px rgba(0,0,0,0.15);
             border: 2px solid #FFD54F;
-            transition: all 0.3s;
         }
 
-.teacher-badge:hover {
-            transform: scale(1.05);
-            border-color: #FF9800;
-        }
-
-.teacher-avatar-img {
+        .teacher-avatar-img {
             width: 42px;
             height: 42px;
             border-radius: 50%;
             object-fit: cover;
             border: 2.5px solid #E91E63;
             background: #FFF;
-            box-shadow: 0 0 10px rgba(233, 30, 99, 0.4);
-            transition: transform 0.3s;
         }
 
-.top-controls {
+        .top-controls {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -236,7 +178,7 @@ header {
             z-index: 2;
         }
 
-.music-btn {
+        .music-btn {
             background: #FFEB3B;
             border: 3px solid #FBC02D;
             border-radius: 25px;
@@ -247,55 +189,44 @@ header {
             color: #E65100;
             cursor: pointer;
             box-shadow: 0 4px 0 #F57F17;
-            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            transition: all 0.2s;
         }
 
-.music-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 #F57F17;
-        }
-
-.music-btn.playing {
+        .music-btn.playing {
             background: #00E676;
             border-color: #00C853;
             color: #004D40;
             box-shadow: 0 4px 0 #00796B;
-            animation: musicPulse 0.8s infinite alternate;
         }
 
-@keyframes musicPulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.08) rotate(1deg); }
-        }
-
-.audio-bars {
+        .audio-bars {
             display: inline-flex;
             align-items: flex-end;
             gap: 2px;
             height: 16px;
         }
 
-.audio-bar {
+        .audio-bar {
             width: 3px;
             background: currentColor;
             border-radius: 2px;
             animation: barBounce 0.5s infinite ease-in-out alternate;
         }
 
-.audio-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+        .audio-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
         .audio-bar:nth-child(2) { height: 100%; animation-delay: 0.25s; }
         .audio-bar:nth-child(3) { height: 40%; animation-delay: 0.4s; }
 
-@keyframes barBounce {
+        @keyframes barBounce {
             0% { height: 20%; }
             100% { height: 100%; }
         }
 
-.score-board {
+        .score-board {
             background: #8E24AA;
             color: #FFF;
             padding: 6px 18px;
@@ -307,38 +238,9 @@ header {
             display: flex;
             align-items: center;
             gap: 6px;
-            position: relative;
-            transition: transform 0.3s;
         }
 
-.score-board.bump {
-            animation: scoreBump 0.4s ease-out;
-        }
-
-@keyframes scoreBump {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.25) rotate(-5deg); background: #FF9800; }
-            100% { transform: scale(1); }
-        }
-
-.floating-score {
-            position: fixed;
-            color: #FFEB3B;
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-shadow: 3px 3px 0 #000;
-            pointer-events: none;
-            z-index: 9999;
-            animation: floatUpScore 1.2s ease-out forwards;
-        }
-
-@keyframes floatUpScore {
-            0% { opacity: 1; transform: translateY(0) scale(0.8); }
-            50% { opacity: 1; transform: translateY(-40px) scale(1.3); }
-            100% { opacity: 0; transform: translateY(-80px) scale(1); }
-        }
-
-.app-container {
+        .app-container {
             display: flex;
             flex: 1;
             padding: 15px;
@@ -348,7 +250,7 @@ header {
             width: 100%;
         }
 
-.sidebar {
+        .sidebar {
             width: 290px;
             background: #FFF;
             border-radius: 20px;
@@ -362,7 +264,7 @@ header {
             overflow-y: auto;
         }
 
-.sidebar h3 {
+        .sidebar h3 {
             color: #2E7D32;
             text-align: center;
             margin-bottom: 8px;
@@ -371,52 +273,30 @@ header {
             padding-bottom: 6px;
         }
 
-.nav-btn {
+        .nav-btn {
             background: #F1F8E9;
             border: 2px solid #C8E6C9;
             padding: 10px 14px;
             border-radius: 14px;
             text-align: left;
             font-size: 0.9rem;
-            line-height: 1.3;
             font-weight: 700;
             color: #33691E;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 8px;
-            position: relative;
-            overflow: hidden;
         }
 
-.nav-btn span.nav-text {
-            flex: 1;
-            position: relative;
-            z-index: 2;
-        }
-
-.nav-btn span:last-child {
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-
-.nav-btn:hover {
-            background: #DCEDC8;
-            transform: translateX(6px);
-            border-color: #81C784;
-        }
-
-.nav-btn.active {
+        .nav-btn.active {
             background: #7CB342;
             color: white;
             border-color: #558B2F;
             box-shadow: 0 4px 0 #33691E;
-            transform: translateX(4px);
         }
 
-.content-area {
+        .content-area {
             flex: 1;
             background: rgba(255, 255, 255, 0.96);
             border-radius: 20px;
@@ -427,15 +307,9 @@ header {
             flex-direction: column;
             overflow-y: auto;
             max-height: calc(100vh - 100px);
-            animation: fadeIn 0.4s ease-out;
         }
 
-@keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-.section-header {
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -444,10 +318,9 @@ header {
             padding: 14px 22px;
             border-radius: 16px;
             border-left: 8px solid #1E88E5;
-            box-shadow: 0 4px 10px rgba(30, 136, 229, 0.15);
         }
 
-.section-title {
+        .section-title {
             font-size: 1.5rem;
             color: #1565C0;
             display: flex;
@@ -455,46 +328,44 @@ header {
             gap: 8px;
         }
 
-.sub-tab-container {
+        .sub-tab-container {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
-.sub-tab {
+        .sub-tab {
             background: #E0F2F1;
             border: 2px solid #80CBC4;
-            padding: 8px 20px;
+            padding: 8px 18px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
             color: #00695C;
-            font-size: 1rem;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 0.95rem;
+            transition: all 0.2s;
         }
 
-.sub-tab:hover {
+        .sub-tab:hover {
             background: #B2DFDB;
-            transform: translateY(-2px);
         }
 
-.sub-tab.active {
+        .sub-tab.active {
             background: #00897B;
             color: white;
             border-color: #004D40;
             box-shadow: 0 4px 0 #004D40;
-            transform: translateY(-2px);
         }
 
-.cards-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
             gap: 16px;
             margin-bottom: 25px;
         }
 
-.card-item {
+        .card-item {
             background: #FFF;
             border: 3px solid #FFB74D;
             border-radius: 18px;
@@ -504,38 +375,24 @@ header {
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 6px 0 #FB8C00;
-            position: relative;
-            animation: cardPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+            transition: all 0.2s;
         }
 
-@keyframes cardPop {
-            0% { opacity: 0; transform: scale(0.6) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+        .card-item:hover {
+            transform: translateY(-4px);
         }
 
-.card-item:hover {
-            transform: translateY(-6px) scale(1.06);
-            box-shadow: 0 10px 0 #FB8C00;
-            border-color: #FF9800;
-        }
-
-.card-text {
+        .card-text {
             font-size: 1.8rem;
             font-weight: 700;
             text-align: center;
         }
 
-.sk-1 { color: #D32F2F; }
-        .sk-2 { color: #1976D2; }
-        .sk-3 { color: #388E3C; }
-        .sk-4 { color: #7B1FA2; }
-
-.konsonan { color: var(--konsonan-color); }
+        .konsonan { color: var(--konsonan-color); }
         .vokal { color: var(--vokal-color); }
 
-.word-display-card {
+        .word-display-card {
             background: #FFFDE7;
             border: 3px solid #FFE082;
             border-radius: 20px;
@@ -545,22 +402,9 @@ header {
             gap: 16px;
             margin-bottom: 14px;
             box-shadow: 0 5px 0 #FFB300;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: slideInRight 0.35s ease-out both;
         }
 
-@keyframes slideInRight {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-.word-display-card:hover {
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 8px 0 #FFB300;
-            background: #FFF9C4;
-        }
-
-.word-visual {
+        .word-visual {
             width: 72px;
             height: 72px;
             background: #FFF;
@@ -571,57 +415,47 @@ header {
             font-size: 2.7rem;
             border: 2px solid #FFE082;
             flex-shrink: 0;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.06);
-            transition: transform 0.3s;
         }
 
-.word-details {
+        .word-details {
             flex: 1;
         }
 
-.word-syllables {
-            font-size: 1.8rem;
+        .word-syllables {
+            font-size: 1.6rem;
             font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-.btn-speaker-only {
+        /* Warna Suku Kata Bagi Modul 8 & 9 */
+        .syl-c1 { color: #1565C0; font-weight: bold; } /* Biru */
+        .syl-c2 { color: #D32F2F; font-weight: bold; } /* Merah */
+        .syl-c3 { color: #2E7D32; font-weight: bold; } /* Hijau */
+        .syl-c4 { color: #6A1B9A; font-weight: bold; } /* Ungu */
+
+        .btn-speaker-only {
             background: #8E24AA;
             color: white;
             border: none;
-            width: 46px;
-            height: 46px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
             box-shadow: 0 4px 0 #4A148C;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.2s;
             flex-shrink: 0;
-            position: relative;
         }
 
-.btn-speaker-only:hover {
+        .btn-speaker-only:hover {
             background: #AB47BC;
-            transform: scale(1.15) rotate(5deg);
+            transform: scale(1.1);
         }
 
-.btn-speaker-only.playing {
-            background: #E53935 !important;
-            box-shadow: 0 4px 0 #B71C1C !important;
-            animation: speakerRipple 0.8s infinite alternate;
-        }
-
-@keyframes speakerRipple {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.6), 0 4px 0 #B71C1C; }
-            100% { transform: scale(1.15); box-shadow: 0 0 0 12px rgba(229, 57, 53, 0), 0 4px 0 #B71C1C; }
-        }
-
-.modal-overlay {
+        .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 0, 0, 0.7);
@@ -630,14 +464,13 @@ header {
             align-items: center;
             z-index: 2000;
             backdrop-filter: blur(6px);
-            animation: fadeInModal 0.25s ease-out;
         }
 
-.modal-overlay.active {
+        .modal-overlay.active {
             display: flex;
         }
 
-.modal-card {
+        .modal-card {
             background: #FFFFFF;
             border: 6px solid #FF9800;
             border-radius: 32px;
@@ -645,18 +478,11 @@ header {
             text-align: center;
             position: relative;
             max-width: 90%;
-            width: 390px;
+            width: 380px;
             box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-            animation: springModal 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-@keyframes springModal {
-            0% { transform: scale(0.3) translateY(50px); opacity: 0; }
-            80% { transform: scale(1.05) translateY(-5px); }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
-
-.close-modal-btn {
+        .close-modal-btn {
             position: absolute;
             top: 12px;
             right: 18px;
@@ -664,145 +490,68 @@ header {
             font-weight: bold;
             color: #888;
             cursor: pointer;
-            line-height: 1;
-            transition: all 0.2s;
         }
 
-.close-modal-btn:hover {
-            color: #E53935;
-            transform: scale(1.2) rotate(90deg);
-        }
-
-.modal-big-display {
-            font-size: 4.8rem;
+        .modal-big-display {
+            font-size: 4rem;
             font-weight: 800;
             line-height: 1.1;
             margin: 15px 0;
             color: #1565C0;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
-            animation: floatDisplay 3s infinite ease-in-out;
         }
 
-@keyframes floatDisplay {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-.quiz-container {
-            margin-top: 30px;
+        .quiz-container {
+            margin-top: 20px;
             background: #FFF8E1;
             border: 4px dashed #FFA000;
             border-radius: 22px;
             padding: 22px;
         }
 
-.quiz-header-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #FF8F00, #FF6F00);
-            color: #FFF;
-            padding: 8px 22px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-bottom: 18px;
-            box-shadow: 0 4px 0 #E65100;
-        }
-
-.quiz-card {
+        .quiz-card {
             background: #FFF;
             border: 3px solid #FFD54F;
             border-radius: 18px;
             padding: 18px;
             margin-bottom: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-            transition: transform 0.2s;
         }
 
-.quiz-card p {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #E65100;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-.options-container {
+        .options-container {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            margin-top: 10px;
         }
 
-.option-btn {
+        .option-btn {
             background: #FFF;
             border: 3px solid #4FC3F7;
             padding: 10px 22px;
             border-radius: 16px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 0 #0288D1;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-.option-btn:hover {
-            background: #E0F7FA;
-            transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 6px 0 #0288D1;
-        }
+        .option-btn.correct { background: #C8E6C9 !important; border-color: #4CAF50 !important; }
+        .option-btn.wrong { background: #FFCDD2 !important; border-color: #F44336 !important; }
 
-.option-btn.correct {
-            background: #C8E6C9 !important;
-            border-color: #4CAF50 !important;
-            box-shadow: 0 4px 0 #2E7D32 !important;
-            color: #1B5E20;
-            animation: correctBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-@keyframes correctBounce {
-            0% { transform: scale(0.8); }
-            50% { transform: scale(1.12); }
-            100% { transform: scale(1); }
-        }
-
-.option-btn.wrong {
-            background: #FFCDD2 !important;
-            border-color: #F44336 !important;
-            box-shadow: 0 4px 0 #C62828 !important;
-            color: #B71C1C;
-            animation: shake 0.4s ease-in-out;
-        }
-
-@keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-8px); }
-            40%, 80% { transform: translateX(8px); }
-        }
-
-.passage-box {
+        .passage-card-wrapper {
             background: #E8F5E9;
             border: 3px solid #81C784;
             border-radius: 20px;
             padding: 22px;
-            font-size: 1.3rem;
-            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        .passage-box {
+            font-size: 1.25rem;
+            line-height: 2.1;
             margin-bottom: 22px;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-.passage-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            border-bottom: 2px dashed #A5D6A7;
-            padding-bottom: 8px;
-        }
-
-.toast {
+        .toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
@@ -814,28 +563,20 @@ header {
             font-size: 1.25rem;
             font-weight: bold;
             opacity: 0;
-            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.35s;
             z-index: 3000;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
         }
 
-.toast.show {
+        .toast.show {
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
 
-@media (max-width: 900px) {
+        @media (max-width: 900px) {
             .app-container { flex-direction: column; }
             .sidebar { width: 100%; max-height: 220px; }
             .content-area { max-height: none; }
             header { flex-wrap: wrap; gap: 10px; }
-            .badge-pintar { font-size: 1.4rem; }
-            .teacher-stickers { padding: 2px 8px; }
-            .teacher-badge { font-size: 0.8rem; padding: 2px 8px 2px 4px; }
-            .mabeles-logo-img { height: 40px; }
-            .teacher-avatar-img { width: 34px; height: 34px; }
-            .brand-tagline { font-size: 0.68rem; }
-            .brand-tagline-sub { font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -844,1214 +585,872 @@ header {
 <canvas id="confettiCanvas"></canvas>
 
 <header>
-        <svg class="header-bg-illustrations" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <g class="animated-cloud-1">
-                <path d="M 50 40 Q 65 20 85 30 Q 100 10 120 25 Q 140 10 160 30 Q 175 20 185 40 Z" fill="#FFFFFF"/>
-            </g>
-            <g class="animated-cloud-2">
-                <path d="M 900 35 Q 915 15 935 25 Q 950 5 970 20 Q 990 5 1010 25 Q 1025 15 1035 35 Z" fill="#FFFFFF"/>
-            </g>
-            <polygon class="twinkle-star" points="300,15 305,25 316,26 308,34 310,45 300,39 290,45 292,34 284,26 295,25" fill="#FFE082"/>
-            <polygon class="twinkle-star" style="animation-delay: 1s;" points="750,20 754,28 763,29 756,35 758,44 744,35 737,29 746,28" fill="#FFE082"/>
-        </svg>
-
-<div class="brand-container">
-            <div class="logo-group">
-                <div class="logo-header-row">
-                    <img src="MaBeLes LOGO.png" alt="Logo MaBeleS" class="mabeles-logo-img" onclick="triggerLogoAnimation()" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'48\'><rect width=\'120\' height=\'48\' fill=\'%23FF9800\' rx=\'10\'/><text x=\'50%\' y=\'65%\' font-size=\'20\' font-weight=\'bold\' fill=\'%23FFF\' text-anchor=\'middle\'>MaBeleS</text></svg>';">
-                    <div class="badge-pintar">PINTAR</div>
-                </div>
-                <div class="brand-tagline">
-                    <div>Aplikasi Bacaan Interaktif Bahasa Melayu</div>
-                    <div class="brand-tagline-sub">Mari Belajar dengan Seronok</div>
-                </div>
+    <div class="brand-container">
+        <div class="logo-group">
+            <div class="logo-header-row">
+                <img src="MaBeLes LOGO.png" alt="Logo MaBeleS" class="mabeles-logo-img" onclick="triggerLogoAnimation()" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'48\'><rect width=\'120\' height=\'48\' fill=\'%23FF9800\' rx=\'10\'/><text x=\'50%\' y=\'65%\' font-size=\'20\' font-weight=\'bold\' fill=\'%23FFF\' text-anchor=\'middle\'>MaBeleS</text></svg>';">
+                <div class="badge-pintar">PINTAR</div>
+            </div>
+            <div class="brand-tagline">
+                <div>Aplikasi Bacaan Interaktif Bahasa Melayu</div>
+                <div class="brand-tagline-sub">Mari Belajar dengan Seronok</div>
             </div>
         </div>
+    </div>
 
-<div class="teacher-stickers">
-            <div class="teacher-badge">
-                <img class="teacher-avatar-img" src="121452.jpg" alt="Cikgu Naz & Cikgu Ju" onerror="this.onerror=null; this.parentElement.innerHTML='👩‍🏫 Cikgu Naz & Cikgu Ju';">
-                <span>Cikgu Naz & Cikgu Ju</span>
-                <span style="font-size:1.1rem; color:#FF9800;">👍</span>
-            </div>
+    <div class="teacher-stickers">
+        <div class="teacher-badge">
+            <img class="teacher-avatar-img" src="121452.jpg" alt="Cikgu Naz & Cikgu Ju" onerror="this.onerror=null; this.parentElement.innerHTML='👩‍🏫 Cikgu Naz & Cikgu Ju';">
+            <span>Cikgu Naz & Cikgu Ju</span>
         </div>
+    </div>
 
-<div class="top-controls">
-            <button class="music-btn" id="musicToggle" title="Buka/Tutup Muzik Ceria">
-                <span id="musicBtnIcon">🎵</span> 
-                <span id="musicBtnText">Muzik</span>
-                <div id="musicVisualizer" class="audio-bars" style="display:none;">
-                    <div class="audio-bar"></div>
-                    <div class="audio-bar"></div>
-                    <div class="audio-bar"></div>
-                </div>
-            </button>
-            <div class="score-board" id="scoreBoard">
-                <span>⭐ Skor:</span>
-                <span id="totalScore">0</span>
+    <div class="top-controls">
+        <button class="music-btn" id="musicToggle" onclick="toggleBackgroundMusic()">
+            <span id="musicBtnIcon">🎵</span> 
+            <span id="musicBtnText">Muzik</span>
+            <div id="musicVisualizer" class="audio-bars" style="display:none;">
+                <div class="audio-bar"></div>
+                <div class="audio-bar"></div>
+                <div class="audio-bar"></div>
             </div>
+        </button>
+        <div class="score-board" id="scoreBoard">
+            <span>⭐ Skor:</span> <span id="totalScore">0</span>
         </div>
-    </header>
+    </div>
+</header>
 
 <div class="app-container">
-        <div class="sidebar">
-            <h3>KEMAHIRAN BACAAN</h3>
-            <button class="nav-btn active" data-skill="1" onclick="switchSkill(1)"><span class="nav-text">Modul 1: Abjad</span> <span>🔤</span></button>
-            <button class="nav-btn" data-skill="2" onclick="switchSkill(2)"><span class="nav-text">Modul 2: Suku Kata KV</span> <span>🧩</span></button>
-            <button class="nav-btn" data-skill="3" onclick="switchSkill(3)"><span class="nav-text">Modul 3: Suku Kata Terbuka</span> <span>📖</span></button>
-            <button class="nav-btn" data-skill="4" onclick="switchSkill(4)"><span class="nav-text">Modul 4: Suku Kata KVK</span> <span>📦</span></button>
-            <button class="nav-btn" data-skill="5" onclick="switchSkill(5)"><span class="nav-text">Modul 5: Suku Kata KVKK</span> <span>🔔</span></button>
-            <button class="nav-btn" data-skill="6" onclick="switchSkill(6)"><span class="nav-text">Modul 6: Diftong & Vokal Berganding</span> <span>🍇</span></button>
-            <button class="nav-btn" data-skill="7" onclick="switchSkill(7)"><span class="nav-text">Modul 7: Digraf & Konsonan Bergabung</span> <span>🎺</span></button>
-            <button class="nav-btn" data-skill="8" onclick="switchSkill(8)"><span class="nav-text">Modul 8: Ayat Mudah</span> <span>📝</span></button>
-            <button class="nav-btn" data-skill="9" onclick="switchSkill(9)"><span class="nav-text">Modul 9: Pemahaman</span> <span>💡</span></button>
-        </div>
-
-<div class="content-area" id="mainContent"></div>
+    <div class="sidebar">
+        <h3>KEMAHIRAN BACAAN</h3>
+        <button class="nav-btn active" data-skill="1" onclick="switchSkill(1)"><span>Modul 1: Abjad</span> <span>🔤</span></button>
+        <button class="nav-btn" data-skill="2" onclick="switchSkill(2)"><span>Modul 2: Suku Kata KV</span> <span>🧩</span></button>
+        <button class="nav-btn" data-skill="3" onclick="switchSkill(3)"><span>Modul 3: Suku Kata Terbuka</span> <span>📖</span></button>
+        <button class="nav-btn" data-skill="4" onclick="switchSkill(4)"><span>Modul 4: Suku Kata KVK</span> <span>📦</span></button>
+        <button class="nav-btn" data-skill="5" onclick="switchSkill(5)"><span>Modul 5: Suku Kata KVKK</span> <span>🔔</span></button>
+        <button class="nav-btn" data-skill="6" onclick="switchSkill(6)"><span>Modul 6: Diftong & Vokal</span> <span>🍇</span></button>
+        <button class="nav-btn" data-skill="7" onclick="switchSkill(7)"><span>Modul 7: Digraf & Konsonan</span> <span>🎺</span></button>
+        <button class="nav-btn" data-skill="8" onclick="switchSkill(8)"><span>Modul 8: Ayat Mudah</span> <span>📝</span></button>
+        <button class="nav-btn" data-skill="9" onclick="switchSkill(9)"><span>Modul 9: Pemahaman</span> <span>💡</span></button>
     </div>
+
+    <div class="content-area" id="mainContent"></div>
+</div>
 
 <div id="cardModal" class="modal-overlay" onclick="closeCardModal(event)">
-        <div class="modal-card" onclick="event.stopPropagation()">
-            <span class="close-modal-btn" onclick="closeCardModalDirect()">×</span>
-            <div id="modalEmoji" style="font-size: 3.8rem; display: flex; justify-content: center; align-items: center;"></div>
-            <div id="modalBigDisplay" class="modal-big-display"></div>
-            <div id="modalSubText" style="font-size: 1.4rem; color: #555; font-weight: bold;"></div>
-            <button id="modalSpeakerBtn" class="btn-speaker-only" style="margin-top: 20px; width:64px; height:64px; font-size:2.2rem;" title="Tekan untuk Dengar / Stop">
-                🔊
-            </button>
-        </div>
+    <div class="modal-card" onclick="event.stopPropagation()">
+        <span class="close-modal-btn" onclick="closeCardModalDirect()">×</span>
+        <div id="modalEmoji" style="font-size: 3.5rem;"></div>
+        <div id="modalBigDisplay" class="modal-big-display"></div>
+        <div id="modalSubText" style="font-size: 1.3rem; color: #555; font-weight: bold;"></div>
+        <button id="modalSpeakerBtn" class="btn-speaker-only" style="margin: 20px auto 0; width: 64px; height: 64px; font-size: 2rem;">🔊</button>
     </div>
+</div>
 
 <div id="toast" class="toast">Syabas! Jawapan Betul! 🎉</div>
 
 <script>
-        /* Tetapan Pembolehubah Modul & Enjin Audio Hybrid */
-        let currentSkill = 1;
-        let score = 0;
-        let isMusicPlaying = false;
-        let audioCtx = null;
-        let currentModalAudioFn = null;
-        let activeSpeakerBtn = null;
-        let isSpeakingState = false;
-        
-        // Objek Audio Global
-        const globalAudioPlayer = new Audio();
-        let cachedVoices = [];
+    let currentSkill = 1;
+    let currentModul1Tab = 'vokal';
+    let score = 0;
+    let isMusicPlaying = false;
+    let audioCtx = null;
+    let musicInterval = null;
+    let isAudioUnlocked = false;
 
-        const svgMeja = `<svg width="54" height="54" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="20" width="56" height="10" rx="2" fill="#8D6E63" stroke="#4E342E" stroke-width="2"/><rect x="10" y="30" width="6" height="26" fill="#6D4C41" stroke="#3E2723" stroke-width="1.5"/><rect x="48" y="30" width="6" height="26" fill="#6D4C41" stroke="#3E2723" stroke-width="1.5"/><rect x="20" y="30" width="5" height="18" fill="#5D4037"/><rect x="39" y="30" width="5" height="18" fill="#5D4037"/></svg>`;
+    // Active Audio Players
+    let activeOnlineAudio = null;
+    let isSpeakingPassage = false;
+    let speechQueueIndex = 0;
 
-        const dataVokal = [
-            { letter: 'a', word: 'ayam', emoji: '🐓', note: 'a' },
-            { letter: 'e', word: 'epal', emoji: '🍎', note: 'e taling' },
-            { letter: 'e', word: 'enam', emoji: '6️⃣', note: 'e pepet' },
-            { letter: 'i', word: 'ikan', emoji: '🐟', note: 'i' },
-            { letter: 'o', word: 'oren', emoji: '🍊', note: 'o' },
-            { letter: 'u', word: 'udang', emoji: '🦐', note: 'u' }
-        ];
+    const svgMeja = `<svg width="54" height="54" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="20" width="56" height="10" rx="2" fill="#8D6E63" stroke="#4E342E" stroke-width="2"/><rect x="10" y="30" width="6" height="26" fill="#6D4C41" stroke="#3E2723" stroke-width="1.5"/><rect x="48" y="30" width="6" height="26" fill="#6D4C41" stroke="#3E2723" stroke-width="1.5"/><rect x="20" y="30" width="5" height="18" fill="#5D4037"/><rect x="39" y="30" width="5" height="18" fill="#5D4037"/></svg>`;
 
-        const allLetters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    const dataVokal = [
+        { letter: 'a', word: 'ayam', emoji: '🐓', soundAudioText: 'a. ah. ayam' },
+        { letter: 'e', word: 'epal', emoji: '🍎', soundAudioText: 'e. eh. epal' },
+        { letter: 'e', word: 'enam', emoji: '6️⃣', soundAudioText: 'e. er. enam' },
+        { letter: 'i', word: 'ikan', emoji: '🐟', soundAudioText: 'i. ee. ikan' },
+        { letter: 'o', word: 'oren', emoji: '🍊', soundAudioText: 'o. oh. oren' },
+        { letter: 'u', word: 'udang', emoji: '🦐', soundAudioText: 'u. oo. udang' }
+    ];
 
-        const listKV = [
-            'ba','bi','bu','ca','ci','cu','da','di','du','fa',
-            'gi','gu','ha','hi','hu','ja','ji','ju','ka','ki',
-            'ku','la','li','lu','ma'
-        ];
+    const allLetters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-        const listSKTerbuka = [
-            { word: 'ubi', syllables: ['u', 'bi'], emoji: '🍠' },
-            { word: 'api', syllables: ['a', 'pi'], emoji: '🔥' },
-            { word: 'meja', syllables: ['me', 'ja'], emoji: svgMeja },
-            { word: 'bola', syllables: ['bo', 'la'], emoji: '⚽' },
-            { word: 'mata', syllables: ['ma', 'ta'], emoji: '👁️' },
-            { word: 'guli', syllables: ['gu', 'li'], emoji: '🔮' },
-            { word: 'kereta', syllables: ['ke', 're', 'ta'], emoji: '🚗' },
-            { word: 'tomato', syllables: ['to', 'ma', 'to'], emoji: '🍅' },
-            { word: 'bateri', syllables: ['ba', 'te', 'ri'], emoji: '🔋' },
-            { word: 'kerusi', syllables: ['ke', 'ru', 'si'], emoji: '🪑' },
-            { word: 'kelapa', syllables: ['ke', 'la', 'pa'], emoji: '🥥' },
-            { word: 'kemeja', syllables: ['ke', 'me', 'ja'], emoji: '👔' }
-        ];
+    const listKV = ['ba','bi','bu','ca','ci','cu','da','di','du','fa','gi','gu','ha','hi','hu','ja','ji','ju','ka','ki','ku','la','li','lu','ma'];
 
-        const listKVK = [
-            { word: 'kek', syllables: ['kek'], emoji: '🍰' },
-            { word: 'jam', syllables: ['jam'], emoji: '⏰' },
-            { word: 'pen', syllables: ['pen'], emoji: '🖊️' },
-            { word: 'kasut', syllables: ['ka', 'sut'], emoji: '👟' },
-            { word: 'pokok', syllables: ['po', 'kok'], emoji: '🌳' },
-            { word: 'ikan', syllables: ['i', 'kan'], emoji: '🐟' },
-            { word: 'kunci', syllables: ['kun', 'ci'], emoji: '🔑' },
-            { word: 'baldi', syllables: ['bal', 'di'], emoji: '🪣' },
-            { word: 'ketam', syllables: ['ke', 'tam'], emoji: '🦀' },
-            { word: 'telur', syllables: ['te', 'lur'], emoji: '🥚' },
-            { word: 'enam', syllables: ['e', 'nam'], emoji: '6️⃣' },
-            { word: 'pensel', syllables: ['pen', 'sel'], emoji: '✏️' },
-            { word: 'sampan', syllables: ['sam', 'pan'], emoji: '🚣' },
-            { word: 'rambutan', syllables: ['ram', 'bu', 'tan'], emoji: '🍈' },
-            { word: 'pembaris', syllables: ['pem', 'ba', 'ris'], emoji: '📏' },
-            { word: 'basikal', syllables: ['ba', 'si', 'kal'], emoji: '🚲' },
-            { word: 'zirafah', syllables: ['zi', 'ra', 'fah'], emoji: '🦒' }
-        ];
+    const listSKTerbuka = [
+        { word: 'ubi', syllables: ['u', 'bi'], emoji: '🍠' },
+        { word: 'api', syllables: ['a', 'pi'], emoji: '🔥' },
+        { word: 'meja', syllables: ['me', 'ja'], emoji: svgMeja },
+        { word: 'bola', syllables: ['bo', 'la'], emoji: '⚽' },
+        { word: 'mata', syllables: ['ma', 'ta'], emoji: '👁️' },
+        { word: 'guli', syllables: ['gu', 'li'], emoji: '🔮' },
+        { word: 'kereta', syllables: ['ke', 're', 'ta'], emoji: '🚗' },
+        { word: 'tomato', syllables: ['to', 'ma', 'to'], emoji: '🍅' },
+        { word: 'bateri', syllables: ['ba', 'te', 'ri'], emoji: '🔋' },
+        { word: 'kerusi', syllables: ['ke', 'ru', 'si'], emoji: '🪑' },
+        { word: 'kelapa', syllables: ['ke', 'la', 'pa'], emoji: '🥥' },
+        { word: 'kemeja', syllables: ['ke', 'me', 'ja'], emoji: '👔' }
+    ];
 
-        const listKVKK = [
-            { word: 'gong', syllables: ['gong'], emoji: '🔔' },
-            { word: 'tong', syllables: ['tong'], emoji: '🛢️' },
-            { word: 'udang', syllables: ['u', 'dang'], emoji: '🦐' },
-            { word: 'pisang', syllables: ['pi', 'sang'], emoji: '🍌' },
-            { word: 'sotong', syllables: ['so', 'tong'], emoji: '🦑' },
-            { word: 'jagung', syllables: ['ja', 'gung'], emoji: '🌽' },
-            { word: 'kucing', syllables: ['ku', 'cing'], emoji: '🐱' },
-            { word: 'kambing', syllables: ['kam', 'bing'], emoji: '🐐' },
-            { word: 'kentang', syllables: ['ken', 'tang'], emoji: '🥔' },
-            { word: 'tanglung', syllables: ['tang', 'lung'], emoji: '🏮' },
-            { word: 'senapang', syllables: ['se', 'na', 'pang'], emoji: '🔫' },
-            { word: 'tangga', syllables: ['tang', 'ga'], emoji: '🪜' },
-            { word: 'belalang', syllables: ['be', 'la', 'lang'], emoji: '🦗' },
-            { word: 'tingkap', syllables: ['ting', 'kap'], emoji: '🪟' },
-            { word: 'manggis', syllables: ['mang', 'gis'], emoji: '🍇' },
-            { word: 'mangkuk', syllables: ['mang', 'kuk'], emoji: '🥣' },
-            { word: 'mangga', syllables: ['mang', 'ga'], emoji: '🥭' }
-        ];
+    const listKVK = [
+        { word: 'kek', syllables: ['kek'], emoji: '🍰' },
+        { word: 'jam', syllables: ['jam'], emoji: '⏰' },
+        { word: 'bas', syllables: ['bas'], emoji: '🚌' },
+        { word: 'beg', syllables: ['beg'], emoji: '🎒' },
+        { word: 'cat', syllables: ['cat'], emoji: '🎨' },
+        { word: 'pin', syllables: ['pin'], emoji: '📌' },
+        { word: 'zip', syllables: ['zip'], emoji: '🤐' },
+        { word: 'bot', syllables: ['bot'], emoji: '🚤' },
+        { word: 'mop', syllables: ['mop'], emoji: '🧹' },
+        { word: 'van', syllables: ['van'], emoji: '🚐' }
+    ];
 
-        const listDiftong = [
-            { word: 'kedai', syllables: ['ke', 'dai'], emoji: '🏪' },
-            { word: 'pantai', syllables: ['pan', 'tai'], emoji: '🏖️' },
-            { word: 'rantai', syllables: ['ran', 'tai'], emoji: '⛓️' },
-            { word: 'tembikai', syllables: ['tem', 'bi', 'kai'], emoji: '🍉' },
-            { word: 'harimau', syllables: ['ha', 'ri', 'mau'], emoji: '🐯' },
-            { word: 'limau', syllables: ['li', 'mau'], emoji: '🍋' },
-            { word: 'buaya', syllables: ['bu', 'a', 'ya'], emoji: '🐊' },
-            { word: 'seluar', syllables: ['se', 'lu', 'ar'], emoji: '👖' },
-            { word: 'kuih', syllables: ['ku', 'ih'], emoji: '🧁' },
-            { word: 'daun', syllables: ['da', 'un'], emoji: '🍃' },
-            { word: 'piano', syllables: ['pi', 'a', 'no'], emoji: '🎹' },
-            { word: 'hadiah', syllables: ['ha', 'di', 'ah'], emoji: '🎁' },
-            { word: 'duit', syllables: ['du', 'it'], emoji: '💵' }
-        ];
+    const listKVKK = [
+        { word: 'bank', syllables: ['bank'], emoji: '🏦' },
+        { word: 'zink', syllables: ['zink'], emoji: '🏠' },
+        { word: 'tang', syllables: ['tang'], emoji: '🔧' },
+        { word: 'gong', syllables: ['gong'], emoji: '🥁' },
+        { word: 'wang', syllables: ['wang'], emoji: '💵' },
+        { word: 'ring', syllables: ['ring'], emoji: '🔔' }
+    ];
 
-        const listDigraf = [
-            { word: 'penyu', syllables: ['pe', 'nyu'], emoji: '🐢' },
-            { word: 'bunga', syllables: ['bu', 'nga'], emoji: '🌺' },
-            { word: 'penyapu', syllables: ['pe', 'nya', 'pu'], emoji: '🧹' },
-            { word: 'singa', syllables: ['si', 'nga'], emoji: '🦁' },
-            { word: 'monyet', syllables: ['mo', 'nyet'], emoji: '🐒' },
-            { word: 'syampu', syllables: ['syam', 'pu'], emoji: '🧴' },
-            { word: 'syiling', syllables: ['syi', 'ling'], emoji: '🪙' },
-            { word: 'khemah', syllables: ['khe', 'mah'], emoji: '⛺' },
-            { word: 'nyamuk', syllables: ['nya', 'muk'], emoji: '🦟' },
-            { word: 'skuter', syllables: ['sku', 'ter'], emoji: '🛵' },
-            { word: 'troli', syllables: ['tro', 'li'], emoji: '🛒' },
-            { word: 'traktor', syllables: ['trak', 'tor'], emoji: '🚜' },
-            { word: 'dram', syllables: ['dram'], emoji: '🥁' },
-            { word: 'klinik', syllables: ['kli', 'nik'], emoji: '🏥' },
-            { word: 'krayon', syllables: ['kra', 'yon'], emoji: '🖍️' }
-        ];
+    const listDiftong = [
+        { word: 'paip', syllables: ['pa', 'ip'], emoji: '🚰' },
+        { word: 'kain', syllables: ['ka', 'in'], emoji: '🧵' },
+        { word: 'daun', syllables: ['da', 'un'], emoji: '🍃' },
+        { word: 'kuih', syllables: ['ku', 'ih'], emoji: '🥮' },
+        { word: 'tuala', syllables: ['tu', 'a', 'la'], emoji: '🧴' },
+        { word: 'limau', syllables: ['li', 'mau'], emoji: '🍋' },
+        { word: 'pisau', syllables: ['pi', 'sau'], emoji: '🔪' },
+        { word: 'pulau', syllables: ['pu', 'lau'], emoji: '🏝️' }
+    ];
 
-        // Modul 8: Ditambah tanda noktah (.) pada penghujung setiap ayat
-        const listAyatModul = [
-            { text: "Abang berjalan kaki ke sekolah.", wordsSyllables: [['A', 'bang'], ['ber', 'ja', 'lan'], ['ka', 'ki'], ['ke'], ['se', 'ko', 'lah', '.']] },
-            { text: "Salmi menolong ibunya menanam pokok bunga.", wordsSyllables: [['Sal', 'mi'], ['me', 'no', 'long'], ['i', 'bu', 'nya'], ['me', 'na', 'nam'], ['po', 'kok'], ['bu', 'nga', '.']] },
-            { text: "Dani dan adiknya pergi memancing ikan.", wordsSyllables: [['Da', 'ni'], ['dan'], ['a', 'dik', 'nya'], ['per', 'gi'], ['me', 'man', 'cing'], ['i', 'kan', '.']] },
-            { text: "Murid-murid beratur ketika membeli makanan di kantin.", wordsSyllables: [['Mu', 'rid', '-', 'mu', 'rid'], ['be', 'ra', 'tur'], ['ke', 'ti', 'ka'], ['mem', 'be', 'li'], ['ma', 'ka', 'nan'], ['di'], ['kan', 'tin', '.']] },
-            { text: "Datuk dan nenek tinggal di kampung.", wordsSyllables: [['Da', 'tuk'], ['dan'], ['ne', 'nek'], ['ting', 'gal'], ['di'], ['kam', 'pung', '.']] },
-            { text: "Di rumah Anis ada kolam renang.", wordsSyllables: [['Di'], ['ru', 'mah'], ['A', 'nis'], ['a', 'da'], ['ko', 'lam'], ['re', 'nang', '.']] },
-            { text: "Buah limau itu sangat masam.", wordsSyllables: [['Bu', 'ah'], ['li', 'mau'], ['i', 'tu'], ['sa', 'ngat'], ['ma', 'sam', '.']] }
-        ];
+    const listDigraf = [
+        { word: 'nyamuk', syllables: ['nya', 'muk'], emoji: '🦟' },
+        { word: 'penyu', syllables: ['pe', 'nyu'], emoji: '🐢' },
+        { word: 'bunga', syllables: ['bu', 'nga'], emoji: '🌸' },
+        { word: 'syampu', syllables: ['syam', 'pu'], emoji: '🧴' },
+        { word: 'khemah', syllables: ['khe', 'mah'], emoji: '⛺' },
+        { word: 'telinga', syllables: ['te', 'li', 'nga'], emoji: '👂' }
+    ];
 
-        const listPemahamanModul = [
-            {
-                title: "Petikan 1: Bersiar-siar di Tepi Pantai",
-                rawText: "Pada hari Ahad, Amin dan adiknya bersiar-siar di tepi pantai. Tiba-tiba, mereka terdengar suara orang meminta tolong. Seorang kanak-kanak hampir lemas di laut. Bapa Amin dengan pantas terjun ke dalam air dan menyelamatkan kanak-kanak itu. Kanak-kanak itu mengucapkan terima kasih kepada bapa Amin.",
-                wordsSyllables: [
-                    ['Pa', 'da'], ['ha', 'ri'], ['A', 'had', ','], ['A', 'min'], ['dan'], ['a', 'dik', 'nya'], ['ber', 'si', 'ar', '-', 'si', 'ar'], ['di'], ['te', 'pi'], ['pan', 'tai', '.'],
-                    ['Ti', 'ba', '-', 'ti', 'ba', ','], ['me', 're', 'ka'], ['ter', 'den', 'gar'], ['su', 'a', 'ra'], ['o', 'rang'], ['me', 'min', 'ta'], ['to', 'long', '.'],
-                    ['Se', 'o', 'rang'], ['ka', 'nak', '-', 'ka', 'nak'], ['ham', 'pir'], ['le', 'mas'], ['di'], ['la', 'ut', '.'],
-                    ['Ba', 'pa'], ['A', 'min'], ['de', 'ngan'], ['pan', 'tas'], ['ter', 'jun'], ['ke'], ['da', 'lam'], ['a', 'ir'], ['dan'], ['me', 'nye', 'la', 'mat', 'kan'], ['ka', 'nak', '-', 'ka', 'nak'], ['i', 'tu', '.'],
-                    ['Ka', 'nak', '-', 'ka', 'nak'], ['i', 'tu'], ['me', 'ngu', 'cap', 'kan'], ['te', 'ri', 'ma'], ['ka', 'sih'], ['ke', 'pa', 'da'], ['ba', 'pa'], ['A', 'min', '.']
-                ],
-                questions: [
-                    { q: "1. Di manakah Amin dan adiknya bersiar-siar?", opts: ["Di tepi pantai", "Di tepi sungai", "Di taman bunga"], ans: "Di tepi pantai" },
-                    { q: "2. Apakah yang dilakukan oleh bapa Amin?", opts: ["Menyelamatkan kanak-kanak", "Memancing ikan", "Bermain pasir"], ans: "Menyelamatkan kanak-kanak" },
-                    { q: "3. Mengapakah orang itu meminta tolong?", opts: ["Kanak-kanak hampir lemas", "Kanak-kanak lapar", "Kanak-kanak hilang"], ans: "Kanak-kanak hampir lemas" },
-                    { q: "4. Siapakah yang menyelamatkan kanak-kanak itu?", opts: ["Bapa Amin", "Amin", "Adik Amin"], ans: "Bapa Amin" },
-                    { q: "5. Apakah yang diucapkan oleh kanak-kanak itu?", opts: ["Terima kasih", "Sama-sama", "Minta maaf"], ans: "Terima kasih" }
-                ]
-            },
-            {
-                title: "Petikan 2: Pulang ke Kampung Datuk",
-                rawText: "Pada minggu lepas, Sani dan keluarganya pulang ke kampung. Sani mengikut datuknya pergi ke dusun. Ketika itu musim buah-buahan. Sani membantu datuknya memungut buah durian. Selepas itu, datuk Sani mengait buah rambutan dan manggis. Sani makan sepuluh ulas durian dan tiga biji buah rambutan. Udara di dusun nyaman dan segar. Sani berasa seronok dan gembira berada di kampung datuknya.",
-                wordsSyllables: [
-                    ['Pa', 'da'], ['ming', 'gu'], ['le', 'pas', ','], ['Sa', 'ni'], ['dan'], ['ke', 'lu', 'ar', 'ga', 'nya'], ['pu', 'lang'], ['ke'], ['kam', 'pung', '.'],
-                    ['Sa', 'ni'], ['me', 'ngi', 'kut'], ['da', 'tuk', 'nya'], ['per', 'gi'], ['ke'], ['du', 'sun', '.'],
-                    ['Ke', 'ti', 'ka'], ['i', 'tu'], ['mu', 'sim'], ['bu', 'ah', '-', 'bu', 'ah', 'an', '.'],
-                    ['Sa', 'ni'], ['mem', 'ban', 'tu'], ['da', 'tuk', 'nya'], ['me', 'mu', 'ngut'], ['bu', 'ah'], ['du', 'ri', 'an', '.'],
-                    ['Se', 'le', 'pas'], ['i', 'tu', ','], ['da', 'tuk'], ['Sa', 'ni'], ['me', 'nga', 'it'], ['bu', 'ah'], ['ram', 'bu', 'tan'], ['dan'], ['mang', 'gis', '.'],
-                    ['Sa', 'ni'], ['ma', 'kan'], ['se', 'pu', 'luh'], ['u', 'las'], ['du', 'ri', 'an'], ['dan'], ['ti', 'ga'], ['bi', 'ji'], ['bu', 'ah'], ['ram', 'bu', 'tan', '.'],
-                    ['U', 'da', 'ra'], ['di'], ['du', 'sun'], ['nya', 'man'], ['dan'], ['se', 'gar', '.'],
-                    ['Sa', 'ni'], ['ber', 'a', 'sa'], ['se', 'ro', 'nok'], ['dan'], ['gem', 'bi', 'ra'], ['ber', 'a', 'da'], ['di'], ['kam', 'pung'], ['da', 'tuk', 'nya', '.']
-                ],
-                questions: [
-                    { q: "1. Ke manakah Sani dan keluarganya pergi?", opts: ["Pulang ke kampung", "Pergi ke muzium", "Melawat zoo"], ans: "Pulang ke kampung" },
-                    { q: "2. Ke manakah Sani mengikut datuknya?", opts: ["Pergi ke dusun", "Pergi ke kedai", "Pergi ke pantai"], ans: "Pergi ke dusun" },
-                    { q: "3. Apakah buah yang dipungut oleh Sani?", opts: ["Buah durian", "Buah pisang", "Buah cempedak"], ans: "Buah durian" },
-                    { q: "4. Apakah buah yang dikait oleh datuk Sani?", opts: ["Rambutan dan manggis", "Epal dan anggur", "Kelapa dan cempedak"], ans: "Rambutan dan manggis" },
-                    { q: "5. Bilakah Sani pulang ke kampung?", opts: ["Pada minggu lepas", "Pada hari ini", "Pada esok hari"], ans: "Pada minggu lepas" }
-                ]
-            }
-        ];
+    const listAyatData = [
+        { num: 1, hyphenated: 'A-bang ber-ja-lan ka-ki ke se-ko-lah.', emoji: '🏫' },
+        { num: 2, hyphenated: 'Sal-mi me-no-long i-bu-nya me-na-nam po-kok bu-nga.', emoji: '🌸' },
+        { num: 3, hyphenated: 'Da-ni dan a-dik-nya per-gi me-man-cing i-kan.', emoji: '🎣' },
+        { num: 4, hyphenated: 'Mu-rid-mu-rid ber-a-tur ke-ti-ka mem-be-li ma-ka-nan di kan-tin.', emoji: '🍱' },
+        { num: 5, hyphenated: 'Da-tuk dan ne-nek ting-gal di kam-pung.', emoji: '🏡' },
+        { num: 6, hyphenated: 'Di ru-mah A-nis a-da ko-lam re-nang.', emoji: '🏊' },
+        { num: 7, hyphenated: 'Bu-ah li-mau i-tu sa-ngat ma-sam.', emoji: '🍋' }
+    ];
 
-        /* Inisialisasi Enjin Audio */
-        function initAudioEngine() {
-            if (!audioCtx) {
-                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioCtxClass) {
-                    audioCtx = new AudioCtxClass();
+    const listPemahamanData = [
+        {
+            title: 'Petikan 1: Berkelah di Pantai',
+            hyphenatedPassage: 'Pa-da ha-ri A-had, A-min dan ke-lu-ar-ga-nya per-gi ber-ke-lah. Ra-mai o-rang pa-da ha-ri i-tu. A-yah me-le-tak-kan ba-rang di ba-wah po-kok. A-min per-gi ber-e-nang, ma-na-ka-la ba-pa dan a-dik A-min ber-ma-in bo-la di te-pi pan-tai.\n\nTi-ba-ti-ba, A-min ter-de-ngar o-rang me-min-ta to-long. Su-a-ra i-tu de-kat de-ngan A-min. A-min li-hat se-o-rang bu-dak le-mas. A-min me-na-rik ta-ngan bu-dak i-tu dan ber-e-nang ke pan-tai.\n\nO-rang ra-mai di si-tu mem-ban-tu A-min meng-ang-kat bu-dak i-tu. Ba-pa bu-dak i-tu ber-te-ri-ma ka-sih ke-pa-da A-min. A-min sa-ngat gem-bi-ra ke-ra-na da-pat me-no-long o-rang.',
+            emoji: '🏖️',
+            questions: [
+                {
+                    q: 'Bi-la-kah A-min dan ke-lu-ar-ga-nya per-gi ber-ke-lah?',
+                    options: ['Pa-da ha-ri A-had', 'Pa-da ha-ri Sab-tu', 'Pa-da ha-ri Is-nin'],
+                    correct: 0
+                },
+                {
+                    q: 'A-pa-kah yang di-la-ku-kan o-leh a-dik A-min dan ba-pa-nya?',
+                    options: ['Ber-e-nang di la-ut', 'Ber-ma-in bo-la di te-pi pan-tai', 'Mem-be-li ma-ka-nan'],
+                    correct: 1
+                },
+                {
+                    q: 'Me-nga-pa-kah o-rang i-tu me-min-ta to-long?',
+                    options: ['Ke-ra-na la-par', 'Ke-ra-na se-o-rang bu-dak le-mas', 'Ke-ra-na ke-hi-la-ngan ba-rang'],
+                    correct: 1
                 }
-            }
+            ]
+        },
+        {
+            title: 'Petikan 2: Pulang ke Dusun Datuk',
+            hyphenatedPassage: 'Pa-da ming-gu le-pas, Sa-ni dan ke-lu-ar-ga-nya pu-lang ke kam-pung. Sa-ni meng-i-kut da-tuk-nya per-gi ke du-sun. Ke-ti-ka i-tu mu-sim bu-ah-bu-ah-an. A-da ba-nyak po-kok bu-ah-bu-ah-an.\n\nSa-ni mem-ban-tu da-tuk-nya me-mu-ngut bu-ah du-ri-an. Se-le-pas i-tu, da-tuk Sa-ni meng-a-it bu-ah ram-bu-tan dan mang-gis. Sa-ni ma-kan se-pu-luh u-las du-ri-an dan ti-ga bi-ji bu-ah ram-bu-tan.\n\nU-da-ra di du-sun nya-man dan se-gar. Sa-ni ber-a-sa se-ro-nok dan gem-bi-ra ber-a-da di kam-pung da-tuk-nya.',
+            emoji: '🌳',
+            questions: [
+                {
+                    q: 'Si-a-pa-kah yang per-gi ke du-sun?',
+                    options: ['Sa-ni dan da-tuk-nya', 'A-li dan ba-pa-nya', 'A-min dan i-bu-nya'],
+                    correct: 0
+                },
+                {
+                    q: 'A-pa-kah po-kok bu-ah-bu-ah-an yang a-da di du-sun da-tuk?',
+                    options: ['Po-kok du-ri-an, ram-bu-tan dan mang-gis', 'Po-kok e-pal dan o-ren', 'Po-kok pi-sang sa-ha-ja'],
+                    correct: 0
+                },
+                {
+                    q: 'A-pa-kah pe-ra-sa-an Sa-ni bi-la pu-lang ke kam-pung?',
+                    options: ['Ber-a-sa se-ro-nok dan gem-bi-ra', 'Ber-a-sa se-dih dan bo-san', 'Ber-a-sa ta-kut'],
+                    correct: 0
+                }
+            ]
+        }
+    ];
+
+    function stripHyphens(text) {
+        return text.replace(/-/g, '');
+    }
+
+    function stopAllAudio() {
+        isSpeakingPassage = false;
+        if (window.currentSafetyTimer) {
+            clearTimeout(window.currentSafetyTimer);
+            window.currentSafetyTimer = null;
+        }
+        if (activeOnlineAudio) {
+            activeOnlineAudio.pause();
+            activeOnlineAudio.currentTime = 0;
+            activeOnlineAudio.onended = null;
+            activeOnlineAudio.onerror = null;
+            activeOnlineAudio = null;
+        }
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+    }
+
+    function unlockAudioEngine() {
+        if (!isAudioUnlocked) {
+            initAudioContext();
             if (audioCtx && audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.resume();
-                cachedVoices = window.speechSynthesis.getVoices();
             }
+            isAudioUnlocked = true;
         }
+    }
+    document.addEventListener('click', unlockAudioEngine, { passive: true });
+    document.addEventListener('touchstart', unlockAudioEngine, { passive: true });
 
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = () => {
-                cachedVoices = window.speechSynthesis.getVoices();
-            };
-        }
+    function playSequentialSentences(sentences) {
+        stopAllAudio();
+        unlockAudioEngine();
 
-        function getMalayVoice() {
-            if (!('speechSynthesis' in window)) return null;
+        if (!sentences || sentences.length === 0) return;
 
-            if (cachedVoices.length === 0) {
-                cachedVoices = window.speechSynthesis.getVoices();
-            }
+        const cleanSentences = sentences.map(s => s.trim()).filter(s => s.length > 0);
+        if (cleanSentences.length === 0) return;
 
-            // Utamakan suara Bahasa Melayu Malaysia.
-            let v = cachedVoices.find(
-                voice => voice.lang &&
-                voice.lang.toLowerCase() === 'ms-my'
-            );
+        speechQueueIndex = 0;
+        isSpeakingPassage = true;
 
-            // Jika tiada, gunakan mana-mana suara Bahasa Melayu.
-            if (!v) {
-                v = cachedVoices.find(
-                    voice => voice.lang &&
-                    voice.lang.toLowerCase().startsWith('ms-')
-                );
-            }
-
-            // JANGAN gunakan suara Indonesia atau English sebagai fallback.
-            return v || null;
-        }
-
-        function stopAudio() {
-            globalAudioPlayer.pause();
-            globalAudioPlayer.onended = null;
-            globalAudioPlayer.onerror = null;
-
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-            }
-            isSpeakingState = false;
-            resetActiveSpeakerBtn();
-        }
-
-        function resetActiveSpeakerBtn() {
-            if (activeSpeakerBtn) {
-                activeSpeakerBtn.classList.remove('playing');
-                activeSpeakerBtn.innerText = '🔊';
-                activeSpeakerBtn = null;
-            }
-        }
-
-        function setSpeakerPlaying(btn) {
-            resetActiveSpeakerBtn();
-            if (btn) {
-                activeSpeakerBtn = btn;
-                activeSpeakerBtn.classList.add('playing');
-                activeSpeakerBtn.innerText = '🔴';
-            }
-        }
-
-        function playSynthPhonicBeep(text) {
-            if (!audioCtx || audioCtx.state !== 'running') return;
-            try {
-                const now = audioCtx.currentTime;
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                let baseFreq = 350 + (text.charCodeAt(0) % 12) * 35;
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(baseFreq, now);
-                osc.frequency.exponentialRampToValueAtTime(baseFreq * 1.25, now + 0.18);
-                
-                gain.gain.setValueAtTime(0.25, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                osc.start(now);
-                osc.stop(now + 0.3);
-            } catch(e) {}
-        }
-
-        /* Enjin Suara Berurutan Menggunakan Re-use Audio Object */
-        function speakSentenceQueue(sentences, rate = 0.85, pitch = 1.1) {
-            let index = 0;
-
-            function playNextSentence() {
-                if (!isSpeakingState || index >= sentences.length) {
-                    stopAudio();
-                    return;
-                }
-
-                const sentence = sentences[index].trim();
-                if (!sentence) {
-                    index++;
-                    playNextSentence();
-                    return;
-                }
-
-                const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ms&client=tw-ob&q=${encodeURIComponent(sentence)}`;
-                
-                globalAudioPlayer.pause();
-                globalAudioPlayer.src = ttsUrl;
-
-                globalAudioPlayer.onended = () => {
-                    index++;
-                    if (isSpeakingState) {
-                        setTimeout(playNextSentence, 200);
-                    }
-                };
-
-                globalAudioPlayer.onerror = () => {
-                    // Sandaran WebSpeech API
-                    if ('speechSynthesis' in window) {
-                        window.speechSynthesis.cancel();
-                        window.speechSynthesis.resume();
-
-                        const utterance = new SpeechSynthesisUtterance(sentence);
-                        utterance.rate = rate;
-                        utterance.pitch = pitch;
-
-                        const voice = getMalayVoice();
-                        if (voice) {
-                            utterance.voice = voice;
-                            utterance.lang = voice.lang;
-                        } else {
-                            utterance.lang = 'ms-MY';
-                        }
-
-                        utterance.onend = () => {
-                            index++;
-                            if (isSpeakingState) setTimeout(playNextSentence, 200);
-                        };
-
-                        utterance.onerror = () => {
-                            playSynthPhonicBeep(sentence);
-                            index++;
-                            if (isSpeakingState) setTimeout(playNextSentence, 200);
-                        };
-
-                        try {
-                            window.speechSynthesis.speak(utterance);
-                        } catch(e) {
-                            playSynthPhonicBeep(sentence);
-                            index++;
-                            if (isSpeakingState) setTimeout(playNextSentence, 200);
-                        }
-                    } else {
-                        playSynthPhonicBeep(sentence);
-                        index++;
-                        if (isSpeakingState) setTimeout(playNextSentence, 200);
-                    }
-                };
-
-                const playPromise = globalAudioPlayer.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {
-                        if (globalAudioPlayer.onerror) globalAudioPlayer.onerror();
-                    });
-                }
-            }
-
-            playNextSentence();
-        }
-
-        /* Enjin Audio Utama */
-        function toggleSpeak(text, buttonEl, rate = 0.85, pitch = 1.1) {
-            initAudioEngine();
-
-            if (activeSpeakerBtn === buttonEl && isSpeakingState) {
-                stopAudio();
+        function speakNextSentence() {
+            if (!isSpeakingPassage || speechQueueIndex >= cleanSentences.length) {
+                isSpeakingPassage = false;
                 return;
             }
 
-            stopAudio();
-            if (!text) return;
+            const sentenceText = cleanSentences[speechQueueIndex];
+            speechQueueIndex++;
 
-            const cleanText = text.trim();
-            if (!cleanText) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
 
-            // Pecahkan petikan kepada ayat-ayat berasingan
-            let sentences = cleanText
-                .replace(/([.!?])\s+/g, "$1|")
-                .split("|")
-                .map(s => s.trim())
-                .filter(Boolean);
+                const utterance = new SpeechSynthesisUtterance(sentenceText);
+                const voices = window.speechSynthesis.getVoices();
 
-            if (sentences.length === 0) sentences = [cleanText];
+                // Cari hanya suara Bahasa Melayu (ms / ms-MY), elakkan bahasa Indonesia (id)
+                let voice = voices.find(v => {
+                    const l = v.lang.toLowerCase();
+                    return (l.includes('ms') || l.includes('melayu')) && !l.includes('id');
+                });
 
-            isSpeakingState = true;
-            if (buttonEl) setSpeakerPlaying(buttonEl);
-
-            // Buka kunci Audio semasa pemicu klik
-            globalAudioPlayer.play().catch(() => {});
-
-            speakSentenceQueue(sentences, rate, pitch);
-        }
-
-        function spellSyllableWithPronunciation(syllable) {
-            if (!syllable) return '';
-            let clean = syllable.toLowerCase().replace(/[^a-z]/g, '');
-            if (clean.length <= 1) return clean;
-            let letters = clean.split('').join(' ');
-            return `${letters}, ${clean}`;
-        }
-
-        function spellAndSpeakToggle(syllables, fullWord, buttonEl) {
-            let cleanSyllables = syllables
-                .map(s => s.toLowerCase().replace(/[^a-z]/g, ''))
-                .filter(s => s.length > 0);
-
-            let speechText = '';
-            
-            if (cleanSyllables.length === 1) {
-                speechText = spellSyllableWithPronunciation(cleanSyllables[0]);
-                if (fullWord && fullWord.toLowerCase() !== cleanSyllables[0]) {
-                    speechText += `, ${fullWord}`;
-                }
-            } else {
-                let spelledEachSyllable = cleanSyllables.map(s => spellSyllableWithPronunciation(s)).join(', ');
-                let combinedSyllables = cleanSyllables.join(', ');
-                speechText = `${spelledEachSyllable}, ${combinedSyllables}, ${fullWord}`;
-            }
-
-            speechText = speechText.replace(/\./g, '');
-            toggleSpeak(speechText, buttonEl, 0.8, 1.1);
-        }
-
-        function renderSyllableColored(syllables) {
-            const colors = ['sk-1', 'sk-2', 'sk-3', 'sk-4'];
-            return syllables.map((syll, idx) => {
-                if (syll === '-' || syll === '.' || syll === ',') return syll;
-                return `<span class="${colors[idx % colors.length]}">${syll}</span>`;
-            }).join('');
-        }
-
-        function switchSkill(skillNum) {
-            initAudioEngine();
-            stopAudio();
-            currentSkill = Number(skillNum);
-            
-            const navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach((btn) => {
-                const btnSkill = Number(btn.getAttribute('data-skill'));
-                if (btnSkill === currentSkill) {
-                    btn.classList.add('active');
+                if (voice) {
+                    utterance.voice = voice;
+                    utterance.lang = voice.lang;
                 } else {
-                    btn.classList.remove('active');
+                    utterance.lang = 'ms-MY';
                 }
-            });
+                utterance.rate = 0.85;
 
-            const contentArea = document.getElementById('mainContent');
-            if (!contentArea) return;
+                let hasFinished = false;
 
-            switch (currentSkill) {
-                case 1: renderKemahiran1(contentArea); break;
-                case 2: renderKemahiran2(contentArea); break;
-                case 3: renderKemahiran3(contentArea); break;
-                case 4: renderKemahiran4(contentArea); break;
-                case 5: renderKemahiran5(contentArea); break;
-                case 6: renderKemahiran6(contentArea); break;
-                case 7: renderKemahiran7(contentArea); break;
-                case 8: renderKemahiran8(contentArea); break;
-                case 9: renderKemahiran9(contentArea); break;
-                default: renderKemahiran1(contentArea);
-            }
-            contentArea.scrollTop = 0;
-        }
+                const cleanupAndNext = () => {
+                    if (hasFinished) return;
+                    hasFinished = true;
+                    if (window.currentSafetyTimer) {
+                        clearTimeout(window.currentSafetyTimer);
+                        window.currentSafetyTimer = null;
+                    }
+                    setTimeout(() => {
+                        if (isSpeakingPassage) speakNextSentence();
+                    }, 200);
+                };
 
-        function renderKemahiran1(container) {
-            container.innerHTML = `
-                <div class="section-header">
-                    <h2 class="section-title">Modul 1: Huruf Abjad & Vokal 🔤</h2>
-                </div>
-                <div class="sub-tab-container">
-                    <button class="sub-tab active" onclick="showAbjadSub(1)">Huruf Vokal</button>
-                    <button class="sub-tab" onclick="showAbjadSub(2)">Huruf Kecil</button>
-                    <button class="sub-tab" onclick="showAbjadSub(3)">Huruf Besar</button>
-                </div>
-                <div id="abjadSubArea"></div>
-            `;
-            showAbjadSub(1);
-        }
+                utterance.onend = cleanupAndNext;
 
-        function showAbjadSub(sub) {
-            stopAudio();
-            document.querySelectorAll('.sub-tab').forEach((tab, i) => {
-                if (i + 1 === sub) tab.classList.add('active');
-                else tab.classList.remove('active');
-            });
+                utterance.onerror = () => {
+                    if (hasFinished) return;
+                    hasFinished = true;
+                    if (window.currentSafetyTimer) {
+                        clearTimeout(window.currentSafetyTimer);
+                        window.currentSafetyTimer = null;
+                    }
+                    speakSentenceOnline(sentenceText, () => {
+                        if (isSpeakingPassage) speakNextSentence();
+                    });
+                };
 
-            const area = document.getElementById('abjadSubArea');
-            if (!area) return;
-            area.innerHTML = '';
+                window.currentSafetyTimer = setTimeout(() => {
+                    if (!hasFinished) {
+                        window.speechSynthesis.cancel();
+                        cleanupAndNext();
+                    }
+                }, Math.max(3000, sentenceText.length * 150));
 
-            if (sub === 1) {
-                let html = '<div class="cards-grid">';
-                dataVokal.forEach((item, index) => {
-                    html += `
-                        <div class="card-item" style="animation-delay:${index * 0.06}s" onclick="triggerVokalModal(${index})">
-                            <span style="font-size: 2.8rem;">${item.emoji}</span>
-                            <div class="card-text vokal">${item.letter.toUpperCase()} ${item.letter}</div>
-                            <small style="font-size:0.95rem; font-weight:bold; color:#444;">${item.word}</small>
-                            <button class="btn-speaker-only" style="width:36px; height:36px; font-size:1.1rem; margin-top:6px;" onclick="event.stopPropagation(); triggerVokalModal(${index})">🔊</button>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-
-                const quizQuestions = [
-                    { q: "1. Apakah huruf vokal awal bagi gambar 🐓 ayam?", opts: ["a", "i", "u"], ans: "a" },
-                    { q: "2. Huruf vokal e-taling digunakan untuk perkataan 🍎:", opts: ["epal", "enam", "ayam"], ans: "epal" },
-                    { q: "3. Gambar 🦐 udang bermula dengan huruf vokal:", opts: ["u", "i", "o"], ans: "u" },
-                    { q: "4. Gambar 🍊 oren bermula dengan huruf vokal:", opts: ["o", "a", "e"], ans: "o" },
-                    { q: "5. Pilih huruf vokal yang betul bagi gambar 🐟 ikan:", opts: ["i", "e", "o"], ans: "i" }
-                ];
-
-                html += render5QuizBlock(quizQuestions);
-                area.innerHTML = html;
-            } else if (sub === 2) {
-                let html = '<div class="cards-grid">';
-                allLetters.forEach((l, index) => {
-                    const isV = ['a','e','i','o','u'].includes(l);
-                    html += `
-                        <div class="card-item" style="animation-delay:${(index % 12) * 0.04}s" onclick="triggerLetterModal(${index}, false)">
-                            <div class="card-text ${isV ? 'vokal' : 'konsonan'}">${l}</div>
-                            <button class="btn-speaker-only" style="width:34px; height:34px; font-size:1rem; margin-top:8px;" onclick="event.stopPropagation(); triggerLetterModal(${index}, false)">🔊</button>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-
-                const quizQuestionsSub2 = [
-                    { q: "1. Apakah huruf besar bagi huruf kecil 'a'?", opts: ["A", "B", "D"], ans: "A" },
-                    { q: "2. Apakah huruf kecil selepas 'c' dalam susunan abjad?", opts: ["d", "e", "b"], ans: "d" },
-                    { q: "3. Manakah antara berikut ialah huruf kecil konsonan?", opts: ["k", "a", "i"], ans: "k" },
-                    { q: "4. Pilih huruf kecil yang betul bagi huruf besar 'M':", opts: ["m", "w", "n"], ans: "m" },
-                    { q: "5. Apakah huruf kecil bagi huruf besar 'R'?", opts: ["r", "p", "k"], ans: "r" }
-                ];
-                html += render5QuizBlock(quizQuestionsSub2);
-                area.innerHTML = html;
-            } else if (sub === 3) {
-                let html = '<div class="cards-grid">';
-                allLetters.forEach((l, index) => {
-                    let upperL = l.toUpperCase();
-                    const isV = ['a','e','i','o','u'].includes(l);
-                    html += `
-                        <div class="card-item" style="animation-delay:${(index % 12) * 0.04}s" onclick="triggerLetterModal(${index}, true)">
-                            <div class="card-text ${isV ? 'vokal' : 'konsonan'}">${upperL}</div>
-                            <button class="btn-speaker-only" style="width:34px; height:34px; font-size:1rem; margin-top:8px;" onclick="event.stopPropagation(); triggerLetterModal(${index}, true)">🔊</button>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-
-                const quizQuestionsSub3 = [
-                    { q: "1. Apakah huruf kecil bagi huruf besar 'D'?", opts: ["d", "b", "p"], ans: "d" },
-                    { q: "2. Huruf besar manakah yang digunakan di awal nama 'Malaysia'?", opts: ["M", "W", "N"], ans: "M" },
-                    { q: "3. Apakah huruf besar pertama dalam susunan abjad?", opts: ["A", "B", "C"], ans: "A" },
-                    { q: "4. Pilih huruf besar bagi huruf kecil 'g':", opts: ["G", "J", "Q"], ans: "G" },
-                    { q: "5. Apakah huruf besar sebelum 'Z'?", opts: ["Y", "X", "W"], ans: "Y" }
-                ];
-                html += render5QuizBlock(quizQuestionsSub3);
-                area.innerHTML = html;
-            }
-        }
-
-        function triggerVokalModal(index) {
-            const item = dataVokal[index];
-            const modalBtn = document.getElementById('modalSpeakerBtn');
-            const speechText = `${item.letter}, ${item.word}`;
-            openCardModal(item.emoji, item.letter, `${item.word} (${item.note})`, (btn) => {
-                toggleSpeak(speechText, btn, 0.8, 1.2);
-            });
-            toggleSpeak(speechText, modalBtn, 0.8, 1.2);
-        }
-
-        function triggerLetterModal(index, isUpper = false) {
-            const letter = allLetters[index];
-            const letterDisp = isUpper ? letter.toUpperCase() : letter;
-            const isVokal = ['a','e','i','o','u'].includes(letter);
-            const modalBtn = document.getElementById('modalSpeakerBtn');
-            
-            openCardModal(
-                '', 
-                `<span class="${isVokal ? 'vokal' : 'konsonan'}">${letterDisp}</span>`, 
-                `Huruf ${isUpper ? 'Besar' : 'Kecil'} ${letterDisp}`, 
-                (btn) => {
-                    toggleSpeak(`${letterDisp}`, btn, 0.8, 1.2);
-                }
-            );
-            toggleSpeak(`${letterDisp}`, modalBtn, 0.8, 1.2);
-        }
-
-        function renderKemahiran2(container) {
-            let html = `
-                <div class="section-header">
-                    <h2 class="section-title">Modul 2: Suku Kata KV 🧩</h2>
-                </div>
-                <p style="margin-bottom:15px; font-weight:bold; color:#555;">Tekan kad suku kata untuk mendengar sebutan:</p>
-                <div class="cards-grid">
-            `;
-
-            listKV.forEach((kv, index) => {
-                html += `
-                    <div class="card-item" style="animation-delay:${(index % 12) * 0.03}s" onclick="triggerKVModal(${index})">
-                        <span class="card-text">
-                            <span class="konsonan">${kv[0]}</span><span class="vokal">${kv[1]}</span>
-                        </span>
-                    </div>
-                `;
-            });
-
-            html += `</div>`;
-
-            const quizM2 = [
-                { q: "1. Gabungkan konsonan 'c' + vokal 'i' menjadi:", opts: ["ca", "ci", "cu"], ans: "ci" },
-                { q: "2. Apakah suku kata awal bagi gambar 👕 (baju)?", opts: ["ba", "ju", "bu"], ans: "ba" },
-                { q: "3. Lengkapkan urutan suku kata ini: ba, bi, ____", opts: ["bo", "bu", "be"], ans: "bu" },
-                { q: "4. Manakah antara berikut suku kata dengan vokal 'u'?", opts: ["da", "di", "du"], ans: "du" },
-                { q: "5. Pilih suku kata bagi sebutan 'g - u':", opts: ["gu", "gi", "ga"], ans: "gu" }
-            ];
-
-            html += render5QuizBlock(quizM2);
-            container.innerHTML = html;
-        }
-
-        function triggerKVModal(index) {
-            const kv = listKV[index];
-            const modalBtn = document.getElementById('modalSpeakerBtn');
-            openCardModal('🧩', kv, `Suku Kata KV`, (btn) => {
-                spellAndSpeakToggle([kv], kv, btn);
-            });
-            spellAndSpeakToggle([kv], kv, modalBtn);
-        }
-
-        function renderWordListModule(title, icon, wordList, listKey, quizArray) {
-            let html = `
-                <div class="section-header">
-                    <h2 class="section-title">${title} ${icon}</h2>
-                </div>
-                <div style="margin-bottom:20px;">
-            `;
-
-            wordList.forEach((item, index) => {
-                const syllablesHtml = item.syllables.map((s, idx) => {
-                    const colorClass = `sk-${(idx % 4) + 1}`;
-                    return `<span class="${colorClass}">${s}</span>`;
-                }).join('-');
-
-                html += `
-                    <div class="word-display-card" style="animation-delay:${index * 0.05}s;" onclick="triggerWordModal('${listKey}', ${index})">
-                        <div class="word-visual">${item.emoji}</div>
-                        <div class="word-details">
-                            <div class="word-syllables">${syllablesHtml}</div>
-                            <div style="font-size:1.1rem; color:#666; font-weight:bold;">${item.word}</div>
-                        </div>
-                        <button class="btn-speaker-only" onclick="event.stopPropagation(); handleWordSpeakerClick(this, '${listKey}', ${index})" title="🔊 Sebut Perkembangan Suku Kata">🔊</button>
-                    </div>
-                `;
-            });
-
-            html += `</div>`;
-            if (quizArray && quizArray.length > 0) {
-                html += render5QuizBlock(quizArray);
-            }
-            return html;
-        }
-
-        function getListByName(name) {
-            switch(name) {
-                case 'listSKTerbuka': return listSKTerbuka;
-                case 'listKVK': return listKVK;
-                case 'listKVKK': return listKVKK;
-                case 'listDiftong': return listDiftong;
-                case 'listDigraf': return listDigraf;
-                default: return [];
-            }
-        }
-
-        function triggerWordModal(listName, index) {
-            const list = getListByName(listName);
-            const item = list[index];
-            if (!item) return;
-
-            const syllablesHtml = item.syllables.map((s, idx) => {
-                const colorClass = `sk-${(idx % 4) + 1}`;
-                return `<span class="${colorClass}">${s}</span>`;
-            }).join('-');
-
-            const modalBtn = document.getElementById('modalSpeakerBtn');
-            openCardModal(
-                item.emoji,
-                syllablesHtml,
-                item.word,
-                (btn) => {
-                    spellAndSpeakToggle(item.syllables, item.word, btn);
-                }
-            );
-            spellAndSpeakToggle(item.syllables, item.word, modalBtn);
-        }
-
-        function handleWordSpeakerClick(btn, listName, index) {
-            const list = getListByName(listName);
-            const item = list[index];
-            if (!item) return;
-            spellAndSpeakToggle(item.syllables, item.word, btn);
-        }
-
-        function renderKemahiran3(container) {
-            const quiz = [
-                { q: "1. Apakah ejaan yang betul bagi gambar ⚽?", opts: ["bola", "bateri", "buku"], ans: "bola" },
-                { q: "2. Manakah pecahan suku kata yang betul bagi 'kereta'?", opts: ["ke-re-ta", "ker-e-ta", "ke-ret-a"], ans: "ke-re-ta" },
-                { q: "3. Lengkapkan ejaan bagi gambar 🍅: to - ma - ____", opts: ["to", "ta", "ti"], ans: "to" },
-                { q: "4. Lengkapkan ejaan bagi gambar 🥥: ke - la - ____", opts: ["pa", "pi", "pu"], ans: "pa" },
-                { q: "5. Bapa duduk di atas ____ 🪑.", opts: ["kerusi", "meja", "bola"], ans: "kerusi" }
-            ];
-            container.innerHTML = renderWordListModule("Modul 3: Perkataan Suku Kata Terbuka", "📖", listSKTerbuka, "listSKTerbuka", quiz);
-        }
-
-        function renderKemahiran4(container) {
-            const quiz = [
-                { q: "1. Apakah ejaan yang betul bagi gambar 🍰?", opts: ["kek", "jam", "pen"], ans: "kek" },
-                { q: "2. Lengkapkan ejaan bagi gambar 👟: ka - ____", opts: ["sut", "si", "kas"], ans: "sut" },
-                { q: "3. Pilih pecahan suku kata yang betul bagi 'pembaris':", opts: ["pem-ba-ris", "pemba-ris", "pe-mba-ris"], ans: "pem-ba-ris" },
-                { q: "4. Berapakah bilangan suku kata bagi perkataan 'sampan'?", opts: ["2 suku kata", "3 suku kata", "1 suku kata"], ans: "2 suku kata" },
-                { q: "5. Ibu menggoreng ____ 🥚 di dapur.", opts: ["telur", "ketam", "ikan"], ans: "telur" }
-            ];
-            container.innerHTML = renderWordListModule("Modul 4: Perkataan Suku Kata Tertutup KVK", "📦", listKVK, "listKVK", quiz);
-        }
-
-        function renderKemahiran5(container) {
-            const quiz = [
-                { q: "1. Apakah ejaan yang betul bagi gambar 🐱?", opts: ["kucing", "kambing", "sotong"], ans: "kucing" },
-                { q: "2. Lengkapkan ejaan bagi gambar 🌽: ja - ____", opts: ["gung", "tang", "lang"], ans: "gung" },
-                { q: "3. Manakah pecahan suku kata yang betul bagi 'belalang'?", opts: ["be-la-lang", "bel-a-lang", "be-lal-ang"], ans: "be-la-lang" },
-                { q: "4. Perkataan manakah yang diakhiri dengan suku kata 'sang'?", opts: ["pisang", "udang", "jagung"], ans: "pisang" },
-                { q: "5. Sang ____ 🐐 suka makan rumput segar.", opts: ["kambing", "kucing", "sotong"], ans: "kambing" }
-            ];
-            container.innerHTML = renderWordListModule("Modul 5: Perkataan Suku Kata Tertutup KVKK", "🔔", listKVKK, "listKVKK", quiz);
-        }
-
-        function renderKemahiran6(container) {
-            const quiz = [
-                { q: "1. Apakah ejaan yang betul bagi gambar 🍉?", opts: ["tembikai", "harimau", "pantai"], ans: "tembikai" },
-                { q: "2. Perkataan manakah yang mempunyai diftong 'au'?", opts: ["harimau", "pantai", "kedai"], ans: "harimau" },
-                { q: "3. Lengkapkan ejaan bagi gambar 🏖️: pan - ____", opts: ["tai", "kai", "mau"], ans: "tai" },
-                { q: "4. Pilih pecahan suku kata yang betul bagi 'buaya':", opts: ["bu-a-ya", "bua-ya", "bu-ay-a"], ans: "bu-a-ya" },
-                { q: "5. Pokok itu gugur banyak ____ 🍃.", opts: ["daun", "kuih", "duit"], ans: "daun" }
-            ];
-            container.innerHTML = renderWordListModule("Modul 6: Diftong & Vokal Berganding", "🍇", listDiftong, "listDiftong", quiz);
-        }
-
-        function renderKemahiran7(container) {
-            const quiz = [
-                { q: "1. Apakah ejaan yang betul bagi gambar 🐢?", opts: ["penyu", "bunga", "singa"], ans: "penyu" },
-                { q: "2. Perkataan manakah yang mengandungi digraf 'ny'?", opts: ["nyamuk", "skuter", "troli"], ans: "nyamuk" },
-                { q: "3. Lengkapkan ejaan bagi gambar 🧹: pe - ____ - pu", opts: ["nya", "nyu", "nga"], ans: "nya" },
-                { q: "4. Manakah pecahan suku kata yang betul bagi 'traktor'?", opts: ["trak-tor", "tr-ak-tor", "tra-ktor"], ans: "trak-tor" },
-                { q: "5. Kakak membeli barang menggunakan ____ 🛒.", opts: ["troli", "skuter", "dram"], ans: "troli" }
-            ];
-            container.innerHTML = renderWordListModule("Modul 7: Digraf & Konsonan Bergabung", "🎺", listDigraf, "listDigraf", quiz);
-        }
-
-        function renderKemahiran8(container) {
-            let html = `
-                <div class="section-header">
-                    <h2 class="section-title">Modul 8: Bacaan Ayat Mudah 📝</h2>
-                </div>
-                <p style="margin-bottom:15px; font-weight:bold; color:#555;">Tekan butang pembesar suara untuk mendengar atau memberhentikan ayat:</p>
-            `;
-
-            listAyatModul.forEach((item, index) => {
-                let sentenceHtml = item.wordsSyllables.map(wordSylls => {
-                    let wordStr = wordSylls.map((syll, sIdx) => {
-                        if (syll === '.' || syll === ',' || syll === '-') return syll;
-                        const colorClass = `sk-${(sIdx % 4) + 1}`;
-                        return `<span class="${colorClass}">${syll}</span>`;
-                    }).join('');
-                    return `<span style="margin-right:8px; display:inline-block;">${wordStr}</span>`;
-                }).join('');
-
-                html += `
-                    <div class="word-display-card" style="flex-wrap:wrap; animation-delay:${index * 0.06}s;">
-                        <div class="word-details">
-                            <div class="word-syllables" style="font-size:1.5rem; line-height:1.8;">${sentenceHtml}</div>
-                        </div>
-                        <button class="btn-speaker-only" onclick="speakAyat(this, ${index})">🔊</button>
-                    </div>
-                `;
-            });
-
-            const quizM8 = [
-                { q: "1. Abang berjalan kaki ke ____ 🏫.", opts: ["sekolah", "pasar", "taman"], ans: "sekolah" },
-                { q: "2. Susunan yang betul ialah: 'Salmi ibunya menolong menanam bunga pokok.'", opts: ["Salmi menolong ibunya menanam pokok bunga.", "Ibunya Salmi pokok bunga menanam.", "Pokok bunga menolong Salmi ibunya."], ans: "Salmi menolong ibunya menanam pokok bunga." },
-                { q: "3. Apakah yang dilakukan oleh Dani dan adiknya?", opts: ["Memancing ikan", "Membuat rumah", "Membuat kolam"], ans: "Memancing ikan" },
-                { q: "4. Berapakah bilangan perkataan dalam ayat 'Buah limau itu sangat masam'?", opts: ["5 perkataan", "3 perkataan", "4 perkataan"], ans: "5 perkataan" },
-                { q: "5. Siapakah yang tinggal di kampung?", opts: ["Datuk dan nenek", "Abang dan adik", "Murid-murid"], ans: "Datuk dan nenek" }
-            ];
-
-            html += render5QuizBlock(quizM8);
-            container.innerHTML = html;
-        }
-
-        function speakAyat(btn, index) {
-            const sentence = listAyatModul[index];
-            if (sentence) {
-                toggleSpeak(sentence.text, btn, 0.8, 1.1);
-            }
-        }
-
-        function renderKemahiran9(container) {
-            let html = `
-                <div class="section-header">
-                    <h2 class="section-title">Modul 9: Petikan Pemahaman 💡</h2>
-                </div>
-            `;
-
-            listPemahamanModul.forEach((item, index) => {
-                let passageHtml = item.wordsSyllables.map(wordSylls => renderSyllableColored(wordSylls)).join(' ');
-
-                html += `
-                    <div class="passage-box">
-                        <div class="passage-header-row">
-                            <h3 style="color:#1B5E20; font-size:1.3rem;">${item.title}</h3>
-                            <button class="btn-speaker-only" onclick="speakPemahaman(this, ${index})" title="Tekan untuk Dengar / Stop Petikan">🔊</button>
-                        </div>
-                        <p style="line-height:2.2; color:#333; font-weight:700; font-size:1.4rem; letter-spacing:0.5px;">${passageHtml}</p>
-                    </div>
-                `;
-
-                html += render5QuizBlock(item.questions);
-            });
-
-            container.innerHTML = html;
-        }
-
-        function speakPemahaman(btn, index) {
-            const passage = listPemahamanModul[index];
-            if (passage && passage.rawText) {
-                toggleSpeak(passage.rawText, btn, 0.85, 1.1);
-            }
-        }
-
-        function render5QuizBlock(questionsArray) {
-            let html = `
-                <div class="quiz-container">
-                    <div class="quiz-header-badge">🎯 Latihan Interaktif</div>
-            `;
-
-            questionsArray.forEach((item) => {
-                const safeAns = item.ans.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                html += `
-                    <div class="quiz-card">
-                        <p>${item.q}</p>
-                        <div class="options-container">
-                            ${item.opts.map(opt => {
-                                const safeOpt = opt.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                                return `<button class="option-btn" onclick="checkAnswer(this, '${safeOpt}', '${safeAns}', event)">${opt}</button>`;
-                            }).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-
-            html += `</div>`;
-            return html;
-        }
-
-        function checkAnswer(btn, selected, correct, evt) {
-            initAudioEngine();
-            const parent = btn.parentElement;
-            const buttons = parent.querySelectorAll('.option-btn');
-            
-            buttons.forEach(b => {
-                b.disabled = true;
-                if (b.innerText.trim() === correct) {
-                    b.classList.add('correct');
-                }
-            });
-
-            if (selected === correct) {
-                btn.classList.add('correct');
-                score += 10;
-                
-                const scoreElem = document.getElementById('totalScore');
-                const scoreBoard = document.getElementById('scoreBoard');
-                scoreElem.innerText = score;
-                scoreBoard.classList.remove('bump');
-                void scoreBoard.offsetWidth;
-                scoreBoard.classList.add('bump');
-
-                if (evt) {
-                    createFloatingScore(evt.clientX, evt.clientY);
-                }
-
-                fireConfetti();
-
-                showToast("Syabas! Jawapan Betul! 🎉 (+10 Skor)");
-                toggleSpeak("Syabas! Jawapan anda betul!", null, 0.9, 1.3);
+                window.speechSynthesis.speak(utterance);
             } else {
-                btn.classList.add('wrong');
-                showToast("Cuba lagi ya! 💪");
-                toggleSpeak("Cuba lagi ya!", null, 0.9, 1.0);
-            }
-        }
-
-        function createFloatingScore(x, y) {
-            const el = document.createElement('div');
-            el.className = 'floating-score';
-            el.innerText = '+10 ⭐';
-            el.style.left = (x - 20) + 'px';
-            el.style.top = (y - 30) + 'px';
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 1200);
-        }
-
-        function fireConfetti() {
-            const canvas = document.getElementById('confettiCanvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const particles = [];
-            const colors = ['#FF5722', '#4CAF50', '#FFEB3B', '#2196F3', '#E91E63', '#9C27B0'];
-
-            for (let i = 0; i < 60; i++) {
-                particles.push({
-                    x: canvas.width / 2,
-                    y: canvas.height / 2,
-                    vx: (Math.random() - 0.5) * 14,
-                    vy: (Math.random() - 0.7) * 14,
-                    size: Math.random() * 8 + 4,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    rotation: Math.random() * 360,
-                    vRot: (Math.random() - 0.5) * 10,
-                    opacity: 1
+                speakSentenceOnline(sentenceText, () => {
+                    if (isSpeakingPassage) speakNextSentence();
                 });
             }
+        }
 
-            let frames = 0;
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach((p) => {
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.vy += 0.3;
-                    p.rotation += p.vRot;
-                    p.opacity -= 0.018;
+        speakNextSentence();
+    }
 
-                    ctx.save();
-                    ctx.globalAlpha = Math.max(0, p.opacity);
-                    ctx.translate(p.x, p.y);
-                    ctx.rotate((p.rotation * Math.PI) / 180);
-                    ctx.fillStyle = p.color;
-                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-                    ctx.restore();
-                });
+    function speakSentenceOnline(text, onComplete) {
+        if (activeOnlineAudio) {
+            activeOnlineAudio.pause();
+            activeOnlineAudio.onended = null;
+            activeOnlineAudio.onerror = null;
+            activeOnlineAudio = null;
+        }
+        const encoded = encodeURIComponent(text);
+        const onlineUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ms&q=${encoded}`;
 
-                frames++;
-                if (frames < 70) {
-                    requestAnimationFrame(animate);
-                } else {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                }
+        activeOnlineAudio = new Audio(onlineUrl);
+        activeOnlineAudio.playbackRate = 0.85;
+
+        let hasEnded = false;
+
+        const done = () => {
+            if (hasEnded) return;
+            hasEnded = true;
+            if (window.currentSafetyTimer) {
+                clearTimeout(window.currentSafetyTimer);
+                window.currentSafetyTimer = null;
             }
-
-            animate();
-        }
-
-        function triggerLogoAnimation() {
-            const logo = document.querySelector('.mabeles-logo-img');
-            if (logo) {
-                logo.style.transform = 'scale(1.25) rotate(10deg)';
-                setTimeout(() => {
-                    logo.style.transform = '';
-                }, 300);
-            }
-            toggleSpeak("MaBeLeS PINTAR! Mari Belajar dengan Seronok!", null, 0.9, 1.2);
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.innerText = msg;
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2500);
-        }
-
-        function openCardModal(emoji, bigDisplay, subText, speakerFn) {
-            document.getElementById('modalEmoji').innerHTML = emoji || '';
-            document.getElementById('modalBigDisplay').innerHTML = bigDisplay || '';
-            document.getElementById('modalSubText').innerText = subText || '';
-            
-            currentModalAudioFn = speakerFn;
-            const btn = document.getElementById('modalSpeakerBtn');
-            btn.onclick = () => {
-                if (currentModalAudioFn) currentModalAudioFn(btn);
-            };
-
-            document.getElementById('cardModal').classList.add('active');
-        }
-
-        function closeCardModal(e) {
-            if (e.target.classList.contains('modal-overlay')) {
-                closeCardModalDirect();
-            }
-        }
-
-        function closeCardModalDirect() {
-            stopAudio();
-            document.getElementById('cardModal').classList.remove('active');
-        }
-
-        /* Web Audio Synthesizer Muzik Latar */
-        let bgmTimer = null;
-        const noteFreqs = {
-            'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
-            'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00,
-            'C3': 130.81, 'G3': 196.00, 'F3': 174.61, 'A3': 220.00
+            if (onComplete) setTimeout(onComplete, 200);
         };
 
-        const melody = [
-            { note: 'C5', dur: 0.25, bass: 'C3' }, { note: 'E5', dur: 0.25 }, { note: 'G5', dur: 0.25 }, { note: 'C5', dur: 0.25, bass: 'C3' },
-            { note: 'A5', dur: 0.35, bass: 'F3' }, { note: 'G5', dur: 0.35 }, { note: 'E5', dur: 0.3 },
-            { note: 'F5', dur: 0.25, bass: 'F3' }, { note: 'E5', dur: 0.25 }, { note: 'D5', dur: 0.25 }, { note: 'G5', dur: 0.25, bass: 'G3' },
-            { note: 'C5', dur: 0.5, bass: 'C3' }, { note: 'REST', dur: 0.2 },
+        activeOnlineAudio.onended = done;
+        activeOnlineAudio.onerror = done;
 
-            { note: 'E5', dur: 0.25, bass: 'C3' }, { note: 'E5', dur: 0.25 }, { note: 'F5', dur: 0.25 }, { note: 'G5', dur: 0.25, bass: 'C3' },
-            { note: 'G5', dur: 0.25, bass: 'G3' }, { note: 'F5', dur: 0.25 }, { note: 'E5', dur: 0.25 }, { note: 'D5', dur: 0.25, bass: 'G3' },
-            { note: 'C5', dur: 0.25, bass: 'C3' }, { note: 'C5', dur: 0.25 }, { note: 'D5', dur: 0.25 }, { note: 'E5', dur: 0.25, bass: 'C3' },
-            { note: 'D5', dur: 0.4, bass: 'G3' }, { note: 'C5', dur: 0.4 }, { note: 'REST', dur: 0.2 }
+        window.currentSafetyTimer = setTimeout(done, Math.max(3000, text.length * 150));
+
+        let p = activeOnlineAudio.play();
+        if (p !== undefined) {
+            p.catch(() => {
+                done();
+            });
+        }
+    }
+
+    function speakText(text) {
+        if (!text) return;
+        unlockAudioEngine();
+        
+        const cleanText = text.trim();
+        const sentences = cleanText.split(/(?<=[.!?])\s+/).filter(s => s.trim().length > 0);
+
+        if (sentences.length > 1) {
+            playSequentialSentences(sentences);
+        } else {
+            playSequentialSentences([cleanText]);
+        }
+    }
+
+    function playLongPassage(fullHyphenatedText) {
+        if (!fullHyphenatedText) return;
+        unlockAudioEngine();
+
+        let cleanText = stripHyphens(fullHyphenatedText).replace(/\n+/g, '. ');
+        let sentences = cleanText.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(s => s.length > 0);
+
+        if (sentences.length === 0) {
+            sentences = [cleanText];
+        }
+
+        playSequentialSentences(sentences);
+    }
+
+    function spellAndSayWord(word, syllables) {
+        if (!syllables || !Array.isArray(syllables) || syllables.length === 0) {
+            let spelled = word.split('').join(', ') + `, ${word}`;
+            speakText(spelled);
+            return;
+        }
+
+        let parts = [];
+        syllables.forEach(syl => {
+            if (syl.length === 1) {
+                parts.push(syl);
+            } else {
+                let letters = syl.split('').join(', ');
+                parts.push(`${letters}, ${syl}`);
+            }
+        });
+
+        let fullSpellingString = `${parts.join('. ')}. ${word}.`;
+        speakText(fullSpellingString);
+    }
+
+    function initAudioContext() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playBeep(type) {
+        initAudioContext();
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        const now = audioCtx.currentTime;
+
+        if (type === 'correct') {
+            osc.frequency.setValueAtTime(523.25, now);
+            osc.frequency.setValueAtTime(659.25, now + 0.1);
+            gain.gain.setValueAtTime(0.2, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+            osc.start(now); osc.stop(now + 0.4);
+        } else {
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(220, now);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+            osc.start(now); osc.stop(now + 0.3);
+        }
+    }
+
+    function toggleBackgroundMusic() {
+        unlockAudioEngine();
+        
+        if (!audioCtx) {
+            initAudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+
+        isMusicPlaying = !isMusicPlaying;
+        const btn = document.getElementById('musicToggle');
+        const btnText = document.getElementById('musicBtnText');
+        const visualizer = document.getElementById('musicVisualizer');
+
+        if (isMusicPlaying) {
+            btn.classList.add('playing');
+            btnText.innerText = 'Main';
+            visualizer.style.display = 'inline-flex';
+            startMelody();
+        } else {
+            btn.classList.remove('playing');
+            btnText.innerText = 'Muzik';
+            visualizer.style.display = 'none';
+            if (musicInterval) clearInterval(musicInterval);
+        }
+    }
+
+    function startMelody() {
+        if (musicInterval) clearInterval(musicInterval);
+
+        const sequence = [
+            261.63, 329.63, 392.00, 523.25, 392.00, 329.63, 349.23, 440.00, 523.25
         ];
+        let step = 0;
 
-        function playSynthNote(freq, duration, type = 'triangle', gainVal = 0.08) {
-            if (!audioCtx || audioCtx.state !== 'running') return;
+        playMelodyNote();
+
+        musicInterval = setInterval(() => {
+            if (!isMusicPlaying) return;
+            playMelodyNote();
+        }, 320);
+
+        function playMelodyNote() {
+            if (!audioCtx) initAudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
             try {
+                const freq = sequence[step];
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
-                
-                osc.type = type;
+
+                osc.type = 'triangle';
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                
-                gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.28);
 
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
 
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
+                osc.start(audioCtx.currentTime);
+                osc.stop(audioCtx.currentTime + 0.28);
+
+                step = (step + 1) % sequence.length;
             } catch(e) {}
         }
+    }
 
-        function playBGMSequence() {
-            let step = 0;
-
-            function scheduleNextNote() {
-                if (!isMusicPlaying) return;
-
-                const item = melody[step % melody.length];
-                const dur = item.dur || 0.3;
-
-                if (item.note !== 'REST' && noteFreqs[item.note]) {
-                    playSynthNote(noteFreqs[item.note], dur, 'triangle', 0.09);
-                }
-
-                if (item.bass && noteFreqs[item.bass]) {
-                    playSynthNote(noteFreqs[item.bass], dur * 1.5, 'sine', 0.12);
-                }
-
-                step++;
-                bgmTimer = setTimeout(scheduleNextNote, dur * 1000);
-            }
-
-            scheduleNextNote();
-        }
-
-        function toggleMusic() {
-            initAudioEngine();
-
-            isMusicPlaying = !isMusicPlaying;
-
-            const musicBtn = document.getElementById('musicToggle');
-            const musicBtnIcon = document.getElementById('musicBtnIcon');
-            const musicBtnText = document.getElementById('musicBtnText');
-            const musicVisualizer = document.getElementById('musicVisualizer');
-
-            if (isMusicPlaying) {
-                musicBtn.classList.add('playing');
-                musicBtnIcon.innerText = "🔊";
-                musicBtnText.innerText = "Tutup";
-                if (musicVisualizer) musicVisualizer.style.display = 'inline-flex';
-                playBGMSequence();
-            } else {
-                musicBtn.classList.remove('playing');
-                musicBtnIcon.innerText = "🎵";
-                musicBtnText.innerText = "Muzik";
-                if (musicVisualizer) musicVisualizer.style.display = 'none';
-                if (bgmTimer) clearTimeout(bgmTimer);
-            }
-        }
-
-        /* Pelepasan Kunci Audio pada Sentuhan/Klik Pertama */
-        window.addEventListener('click', function unlockAudioContext() {
-            initAudioEngine();
-        }, { once: true });
-
-        window.addEventListener('touchstart', function unlockAudioTouch() {
-            initAudioEngine();
-        }, { once: true });
-
-        /* Eksport Fungsi Global */
-        window.switchSkill = switchSkill;
-        window.showAbjadSub = showAbjadSub;
-        window.triggerVokalModal = triggerVokalModal;
-        window.triggerLetterModal = triggerLetterModal;
-        window.triggerKVModal = triggerKVModal;
-        window.triggerWordModal = triggerWordModal;
-        window.handleWordSpeakerClick = handleWordSpeakerClick;
-        window.speakAyat = speakAyat;
-        window.speakPemahaman = speakPemahaman;
-        window.checkAnswer = checkAnswer;
-        window.closeCardModal = closeCardModal;
-        window.closeCardModalDirect = closeCardModalDirect;
-        window.toggleMusic = toggleMusic;
-        window.triggerLogoAnimation = triggerLogoAnimation;
-
-        window.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('musicToggle').addEventListener('click', toggleMusic);
-            switchSkill(1);
+    function switchSkill(skillNum) {
+        currentSkill = skillNum;
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.toggle('active', parseInt(btn.dataset.skill) === skillNum);
         });
-    </script>
+
+        const main = document.getElementById('mainContent');
+        main.innerHTML = '';
+
+        switch (skillNum) {
+            case 1: renderSkill1(); break;
+            case 2: renderSkill2(); break;
+            case 3: renderSkill3(); break;
+            case 4: renderSkill4(); break;
+            case 5: renderSkill5(); break;
+            case 6: renderSkill6(); break;
+            case 7: renderSkill7(); break;
+            case 8: renderSkill8(); break;
+            case 9: renderSkill9(); break;
+        }
+    }
+
+    function switchModul1Tab(tabType, btnEl) {
+        currentModul1Tab = tabType;
+        document.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        renderSkill1();
+    }
+
+    function renderSkill1() {
+        const main = document.getElementById('mainContent');
+        let html = `
+            <div class="section-header">
+                <div class="section-title"><span>🔤</span> Modul 1: Huruf Abjad & Vokal</div>
+            </div>
+
+            <div class="sub-tab-container">
+                <button class="sub-tab ${currentModul1Tab === 'vokal' ? 'active' : ''}" onclick="switchModul1Tab('vokal', this)">Huruf Vokal 🍎</button>
+                <button class="sub-tab ${currentModul1Tab === 'kecil' ? 'active' : ''}" onclick="switchModul1Tab('kecil', this)">Huruf Kecil (a-z) 🔤</button>
+                <button class="sub-tab ${currentModul1Tab === 'besar' ? 'active' : ''}" onclick="switchModul1Tab('besar', this)">Huruf Besar (A-Z) 🔠</button>
+            </div>
+        `;
+
+        if (currentModul1Tab === 'vokal') {
+            html += `<h4 style="margin-bottom:12px; color:#1565C0;">Bahagian 1: Huruf Vokal Bersama Gambar</h4><div class="cards-grid">`;
+            dataVokal.forEach(item => {
+                let audioString = item.soundAudioText;
+                html += `
+                    <div class="card-item" onclick="openCardModal('${item.letter}', 'Perkataan: ${item.word}', '${item.emoji}', '${audioString}')">
+                        <div style="font-size:2rem;">${item.emoji}</div>
+                        <div class="card-text vokal">${item.letter.toUpperCase()} ${item.letter}</div>
+                        <div style="font-size:0.85rem; color:#666;">${item.word}</div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        } else if (currentModul1Tab === 'kecil') {
+            html += `<h4 style="margin-bottom:12px; color:#1565C0;">Bahagian 2: Huruf Kecil (a-z)</h4><div class="cards-grid">`;
+            allLetters.forEach(l => {
+                let audioString = `${l}`;
+                html += `
+                    <div class="card-item" onclick="openCardModal('${l}', 'Huruf Kecil', '🔤', '${audioString}')">
+                        <div class="card-text ${'aeiou'.includes(l) ? 'vokal' : 'konsonan'}">${l}</div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        } else if (currentModul1Tab === 'besar') {
+            html += `<h4 style="margin-bottom:12px; color:#1565C0;">Bahagian 3: Huruf Besar (A-Z)</h4><div class="cards-grid">`;
+            allLetters.forEach(l => {
+                let upperL = l.toUpperCase();
+                let audioString = `${upperL}`;
+                html += `
+                    <div class="card-item" onclick="openCardModal('${upperL}', 'Huruf Besar', '🔠', '${audioString}')">
+                        <div class="card-text ${'aeiou'.includes(l) ? 'vokal' : 'konsonan'}">${upperL}</div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+        }
+
+        main.innerHTML = html;
+    }
+
+    function renderSkill2() {
+        const main = document.getElementById('mainContent');
+        let html = `
+            <div class="section-header">
+                <div class="section-title"><span>🧩</span> Modul 2: Suku Kata KV</div>
+            </div>
+            <div class="cards-grid">
+        `;
+
+        listKV.forEach(kv => {
+            let audioString = `${kv[0]}, ${kv[1]}, ${kv}`;
+            html += `
+                <div class="card-item" onclick="openCardModal('${kv}', 'Suku kata ${kv}', '💬', '${audioString}')">
+                    <div class="card-text">
+                        <span class="konsonan">${kv[0]}</span><span class="vokal">${kv[1]}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `</div>`;
+        main.innerHTML = html;
+    }
+
+    function renderSkill3() { renderWordListModule('📖', 'Modul 3: Perkataan Suku Kata Terbuka', listSKTerbuka); }
+    function renderSkill4() { renderWordListModule('📦', 'Modul 4: Suku Kata KVK', listKVK); }
+    function renderSkill5() { renderWordListModule('🔔', 'Modul 5: Suku Kata KVKK', listKVKK); }
+    function renderSkill6() { renderWordListModule('🍇', 'Modul 6: Diftong & Vokal Berganding', listDiftong); }
+    function renderSkill7() { renderWordListModule('🎺', 'Modul 7: Digraf & Konsonan Bergabung', listDigraf); }
+
+    function renderWordListModule(icon, title, dataset) {
+        const main = document.getElementById('mainContent');
+        let html = `
+            <div class="section-header">
+                <div class="section-title"><span>${icon}</span> ${title}</div>
+            </div>
+        `;
+
+        dataset.forEach(item => {
+            const displaySyllables = item.syllables.map(s => {
+                if (s.length === 1) return `<span class="vokal">${s}</span>`;
+                return `<span class="konsonan">${s[0]}</span><span class="vokal">${s.slice(1)}</span>`;
+            }).join('-');
+
+            const sylJson = JSON.stringify(item.syllables).replace(/"/g, '&quot;');
+
+            html += `
+                <div class="word-display-card" onclick="openCardModalSpelling('${item.word}', 'Ejaan: ${item.syllables.join(' - ')}', '${item.emoji}', '${item.word}', ${sylJson})">
+                    <div class="word-visual">${item.emoji}</div>
+                    <div class="word-details">
+                        <div class="word-syllables">${displaySyllables}</div>
+                        <div style="color:#777; font-size:0.9rem; text-transform:capitalize;">${item.word}</div>
+                    </div>
+                    <button class="btn-speaker-only" onclick="event.stopPropagation(); spellAndSayWord('${item.word}', ${sylJson})">🔊</button>
+                </div>
+            `;
+        });
+
+        main.innerHTML = html;
+    }
+
+    function renderSkill8() {
+        const main = document.getElementById('mainContent');
+        let html = `
+            <div class="section-header">
+                <div class="section-title"><span>📝</span> Modul 8: Kemahiran 31 - Membaca Dan Membina Ayat Mudah</div>
+            </div>
+            <p style="margin-bottom:15px; font-weight:bold; color:#2E7D32;">Baca ayat-ayat di bawah ini:</p>
+        `;
+
+        listAyatData.forEach((item) => {
+            let coloredSentence = renderColoredHyphenatedText(item.hyphenated);
+            let plainText = stripHyphens(item.hyphenated);
+
+            html += `
+                <div class="word-display-card">
+                    <div class="word-visual" style="font-weight:bold; color:#E65100; font-size:1.8rem;">${item.num}</div>
+                    <div class="word-details">
+                        <div style="font-size:1.35rem; line-height:1.6;">${coloredSentence}</div>
+                    </div>
+                    <button class="btn-speaker-only" onclick="speakText('${plainText.replace(/'/g, "\\'")}')">🔊</button>
+                </div>
+            `;
+        });
+
+        main.innerHTML = html;
+    }
+
+    function renderSkill9() {
+        const main = document.getElementById('mainContent');
+        let html = `
+            <div class="section-header">
+                <div class="section-title"><span>💡</span> Modul 9: Kemahiran 32 - Bacaan Dan Pemahaman</div>
+            </div>
+            <p style="margin-bottom:15px; font-weight:bold; color:#2E7D32;">Baca petikan dan jawab soalan pemahaman:</p>
+        `;
+
+        listPemahamanData.forEach((item, pIdx) => {
+            let paragraphs = item.hyphenatedPassage.split('\n\n').map(p => renderColoredHyphenatedText(p)).join('<br><br>');
+
+            html += `
+                <div class="passage-card-wrapper">
+                    <div class="passage-box">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:2px dashed #A5D6A7; padding-bottom:8px;">
+                            <strong style="color:#2E7D32; font-size:1.3rem;">${item.emoji} ${item.title}</strong>
+                            <button class="btn-speaker-only" onclick="playPassageAudio(${pIdx})">🔊</button>
+                        </div>
+                        <div>${paragraphs}</div>
+                    </div>
+                    <div class="quiz-container">
+                        <strong style="color:#E65100; font-size:1.2rem;">⭐ Soalan Pemahaman ${pIdx + 1}</strong>
+            `;
+
+            item.questions.forEach((qObj, qIdx) => {
+                let coloredQuestion = renderColoredHyphenatedText(qObj.q);
+
+                html += `
+                    <div class="quiz-card" style="margin-top:12px;">
+                        <p style="font-size:1.15rem; font-weight:bold; color:#E65100;">${qIdx + 1}. ${coloredQuestion}</p>
+                        <div class="options-container">
+                `;
+                qObj.options.forEach((opt, oIdx) => {
+                    let coloredOpt = renderColoredHyphenatedText(opt);
+                    html += `
+                        <button class="option-btn" onclick="checkAnswer(this, ${oIdx === qObj.correct})">${coloredOpt}</button>
+                    `;
+                });
+                html += `</div></div>`;
+            });
+
+            html += `</div></div>`;
+        });
+
+        main.innerHTML = html;
+    }
+
+    function playPassageAudio(idx) {
+        if (!listPemahamanData[idx]) return;
+        playLongPassage(listPemahamanData[idx].hyphenatedPassage);
+    }
+
+    function checkAnswer(btn, isCorrect) {
+        if (btn.classList.contains('correct') || btn.classList.contains('wrong')) return;
+
+        if (isCorrect) {
+            btn.classList.add('correct');
+            playBeep('correct');
+            addScore(10);
+            showToast('Syabas! Jawapan Betul! 🎉');
+            triggerConfetti();
+        } else {
+            btn.classList.add('wrong');
+            playBeep('wrong');
+            showToast('Cuba lagi ya! 😃');
+        }
+    }
+
+    function addScore(points) {
+        score += points;
+        document.getElementById('totalScore').innerText = score;
+    }
+
+    function openCardModal(bigText, subText, emoji, directAudio) {
+        document.getElementById('modalBigDisplay').innerText = bigText;
+        document.getElementById('modalSubText').innerText = subText || '';
+        document.getElementById('modalEmoji').innerHTML = emoji || '⭐';
+
+        const modal = document.getElementById('cardModal');
+        modal.classList.add('active');
+
+        document.getElementById('modalSpeakerBtn').onclick = () => speakText(directAudio);
+
+        speakText(directAudio);
+    }
+
+    function openCardModalSpelling(bigText, subText, emoji, word, syllables) {
+        document.getElementById('modalBigDisplay').innerText = bigText;
+        document.getElementById('modalSubText').innerText = subText || '';
+        document.getElementById('modalEmoji').innerHTML = emoji || '⭐';
+
+        const modal = document.getElementById('cardModal');
+        modal.classList.add('active');
+
+        document.getElementById('modalSpeakerBtn').onclick = () => spellAndSayWord(word, syllables);
+
+        spellAndSayWord(word, syllables);
+    }
+
+    function closeCardModal(e) {
+        if (e.target.id === 'cardModal') closeCardModalDirect();
+    }
+
+    function closeCardModalDirect() {
+        document.getElementById('cardModal').classList.remove('active');
+        stopAllAudio();
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    function triggerLogoAnimation() {
+        addScore(5);
+        showToast('Mari Belajar Dengan Seronok! 🚀');
+        triggerConfetti();
+    }
+
+    function triggerConfetti() {
+        const canvas = document.getElementById('confettiCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const colors = ['#FF5722', '#4CAF50', '#FFEB3B', '#2196F3', '#E91E63'];
+
+        for (let i = 0; i < 50; i++) {
+            particles.push({
+                x: canvas.width / 2,
+                y: canvas.height / 2,
+                vx: (Math.random() - 0.5) * 12,
+                vy: (Math.random() - 0.7) * 12,
+                size: Math.random() * 8 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                alpha: 1
+            });
+        }
+
+        function render() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let active = false;
+
+            particles.forEach(p => {
+                if (p.alpha > 0) {
+                    active = true;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.3;
+                    p.alpha -= 0.02;
+
+                    ctx.globalAlpha = Math.max(0, p.alpha);
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+
+            if (active) requestAnimationFrame(render);
+            else ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        render();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        switchSkill(1);
+    });
+</script>
 </body>
 </html>
-
-```
